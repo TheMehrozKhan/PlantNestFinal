@@ -11,7 +11,7 @@ namespace PlantNest.Controllers
 {
     public class AdminController : Controller
     {
-        PlantNestEntities1 db = new PlantNestEntities1();
+        PlantNestEntities2 db = new PlantNestEntities2();
         [HttpGet]
         public ActionResult Login()
         {
@@ -169,7 +169,7 @@ namespace PlantNest.Controllers
             pro.pro_desc = pr.pro_desc;
             pro.u_contact = pr.u_contact;
             pro.cat_id_fk = pr.cat_id_fk;
-            pro.us_id_fk = Convert.ToInt32(Session["ad_id"].ToString());
+            pro.ad_id_fk = Convert.ToInt32(Session["ad_id"].ToString());
 
             if (imagePaths.Count > 0)
             {
