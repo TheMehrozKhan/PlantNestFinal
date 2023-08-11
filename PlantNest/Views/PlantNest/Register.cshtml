@@ -21,7 +21,7 @@
                     <div class="col-md-6">
                         <!-- Log In & Register Box Start -->
                         <div class="login-register">
-                            <form method="post">
+                            <form method="post" id="signupform">
                                 <div class="login-register__form">
                                     <div class="single-form">
                                         <label for="username">Username:</label>
@@ -53,88 +53,26 @@
                                     </div>
                                 </div>
                             </form>
-
-                            <ul class="login-register__social">
-                                <li>
-                                    <a class="social-facebook" href="#">
-                                        <span class="social-icon">
-                                            <img src="/Template/assets/images/facebook.svg"
-                                                 alt="Facebook" />
-                                        </span>
-                                        <span class="social-text">Login with Facebook</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="social-google" href="#">
-                                        <span class="social-icon">
-                                            <img src="/Template/assets/images/google.svg"
-                                                 alt="Facebook" />
-                                        </span>
-                                        <span class="social-text">Login with Google</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="newsletter-section">
-            <div class="newsletter-left" style="background-image: url(/Template/assets/images/newsletter-bg-1.jpg)">
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title">Follow us on</h4>
-                    <p>
-                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                        lectus, vehicula vel euismod sed, vulputate
-                    </p>
-
-                    <div class="newsletter-social">
-                        <ul class="newsletter-social__list">
-                            <li>
-                                <a href="#" aria-label="facebook">
-                                    <i class="lastudioicon-b-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="twitter">
-                                    <i class="lastudioicon-b-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="instagram">
-                                    <i class="lastudioicon-b-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="vimeo">
-                                    <i class="lastudioicon-b-vimeo"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="envato">
-                                    <i class="lastudioicon-envato"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="newsletter-right" style="background-image: url(/Template/assets/images/newsletter-bg-2.jpg)">
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
-                    <p>
-                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                        lectus, vehicula vel euismod sed, vulputate
-                    </p>
-                    <form action="#">
-                        <div class="newsletter-form-style-1">
-                            <input type="text" placeholder="Enter your email address..." />
-                            <button>Subscribe</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+                  document.getElementById('signupform').addEventListener('submit', function(event) {
+                      event.preventDefault();
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Congrats!',
+                          text: 'Your Account Has Been Created!'
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                              window.location.href = '@Url.Action("Login", "PlantNest")';
+                              this.submit();
+                          }
+                      });
+                  });
+    </script>
 </body>
-
