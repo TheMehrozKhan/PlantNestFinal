@@ -3,26 +3,17 @@
 @{
     ViewBag.Title = "Register";
 }
-
 <body>
-
     <main>
-        <!-- Breadcrumb Start -->
         <div class="breadcrumb-section">
             <div class="container-fluid custom-container">
                 <div class="breadcrumb-wrapper text-center">
-                    <h2 class="breadcrumb-wrapper__title">
-                        Log In & Register
+                    <h2 class="breadcrumb-wrapper__title" style=" font-family: 'Poppins', sans-serif; ">
+                        Register Your Account
                     </h2>
-                    <ul class="breadcrumb-wrapper__items justify-content-center">
-                        <li><a href="index.html">Home</a></li>
-                        <li><span>Log In & Register</span></li>
-                    </ul>
                 </div>
             </div>
         </div>
-        <!-- Breadcrumb End -->
-        <!-- Log In & Register Start -->
         <div class="login-register-section section-padding-2">
             <div class="container-fluid custom-container">
                 <div class="row justify-content-center">
@@ -30,11 +21,8 @@
                     <div class="col-md-6">
                         <!-- Log In & Register Box Start -->
                         <div class="login-register">
-                            <h3 class="login-register__title">Register</h3>
-
                             <form method="post">
                                 <div class="login-register__form">
-                                    <!-- Single Form Start -->
                                     <div class="single-form">
                                         <label for="username">Username:</label>
                                         @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Username" } })
@@ -51,35 +39,18 @@
                                         @Html.ValidationMessageFor(model => model.u_password, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="single-form">
-                                        <label for="password">Image:</label>
-                                        <input type="file" name="imgfile" id="imgfile" class="form-control-file" required />
-                                    </div>
-                                    <div class="single-form">
-                                        <label for="password">Contact:</label>
+                                        <label for="password">Phone Number:</label>
                                         @Html.EditorFor(model => model.u_contact, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Contact Details" } })
                                         @Html.ValidationMessageFor(model => model.u_contact, "", new { @class = "text-danger" })
                                     </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <p class="privacy-policy-text">
-                                            Your personal data will be used
-                                            to support your experience
-                                            throughout this website, to
-                                            manage access to your account,
-                                            and for other purposes described
-                                            in our
-                                            <a href="#">privacy policy</a>.
-                                        </p>
+                                    <div class="single-form" style="margin-top: 35px; margin-bottom: 35px;">
+                                        <p class="login-register__title" style=" font-family: 'Poppins', sans-serif; text-align:center;font-size:15px;font-weight:500;">Fill Out The Form & Welcome to PlantNest!</p>
                                     </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
+                                    <div class="single-form" style="display:flex;justify-content:center;align-items:center;">
                                         <button class="single-form__btn btn">
                                             Register
                                         </button>
                                     </div>
-                                    <!-- Single Form Start -->
                                 </div>
                             </form>
 
@@ -103,21 +74,13 @@
                                     </a>
                                 </li>
                             </ul>
-                            <h5 class="text-center mt-5" style="font-size:16px;">
-                                Go Back to @Html.ActionLink("Login here?", "Login")
-                            </h5>
                         </div>
-                        <!-- Log In & Register Box End -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Log In & Register End -->
-        <!-- Newsletter Start -->
-        <!-- Newsletter Start -->
         <div class="newsletter-section">
             <div class="newsletter-left" style="background-image: url(/Template/assets/images/newsletter-bg-1.jpg)">
-                <!-- Newsletter Wrapper Start -->
                 <div class="newsletter-wrapper text-center">
                     <h4 class="newsletter-wrapper__title">Follow us on</h4>
                     <p>
@@ -155,10 +118,8 @@
                         </ul>
                     </div>
                 </div>
-                <!-- Newsletter Wrapper End -->
             </div>
             <div class="newsletter-right" style="background-image: url(/Template/assets/images/newsletter-bg-2.jpg)">
-                <!-- Newsletter Wrapper Start -->
                 <div class="newsletter-wrapper text-center">
                     <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
                     <p>
@@ -172,13 +133,8 @@
                         </div>
                     </form>
                 </div>
-                <!-- Newsletter Wrapper End -->
             </div>
         </div>
-        <!-- Newsletter End -->
-        <!-- Newsletter End -->
     </main>
-
-
 </body>
 
