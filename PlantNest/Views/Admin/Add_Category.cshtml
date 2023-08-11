@@ -1,0 +1,56 @@
+﻿﻿@{
+    Layout = null;
+}
+﻿﻿@model PlantNest.Models.tbl_category
+@{
+    ViewBag.Title = "Add_Category";
+}
+@Html.Partial("Layout")
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="body-wrapper">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container" style="border: 0.5px solid deepskyblue; width: 25%; padding-top: 10px; height: 45px; border-radius: 8px; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;margin-bottom:40px;">
+                        <h5 class="card-title fw-semibold mb-4 text-center">Add Your Category</h5>
+                    </div>
+                    @using (Html.BeginForm("Add_Category", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "signupform" }))
+                    {
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="username">Category Name:</label>
+                                @Html.TextBoxFor(x => x.cat_name, new { @class = "form-control", @id = "custom-input", @placeholder = "Enter Category Name", @style = "margin-top:10px;" })
+                                <span style="color: red">@Html.ValidationMessageFor(x => x.cat_name)</span>
+                            </div>
+                            <br />
+                            <div class="form-group" style="margin-top:20px;">
+                                <label for="password">Category Image:</label>
+                                <input type="file" name="imgfile" id="imgfile" class="input" required />
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary" id="thebutton" style="width: 20%; height: 40px; font-size: 16px;">Add</button>
+                            </div>
+                        </form>
+                    }
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script>
+                  document.getElementById('signupform').addEventListener('submit', function(event) {
+                      event.preventDefault();
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Congrats!',
+                          text: 'Your Category Are Uploaded!'
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                              window.location.href = '@Url.Action("Add_Category", "Admin")';
+                              this.submit();
+                          }
+                      });
+                  });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

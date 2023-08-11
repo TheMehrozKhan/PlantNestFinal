@@ -1,0 +1,72 @@
+﻿﻿@model PlantNest.Models.tbl_product
+@{
+    Layout = null;
+}
+@Html.Partial("Layout")
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="body-wrapper">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container" style="border: 0.5px solid deepskyblue; width: 50%; padding-top: 10px; height: 45px; border-radius: 8px; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;margin-bottom:40px;">
+                        <h5 class="card-title fw-semibold mb-4 text-center">Add Your Product Now</h5>
+                    </div>
+                    @using (Html.BeginForm("Create_Ad", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @class = "theform" }))
+                    {
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.cat_id_fk, "Select Category:")
+                                <br />
+                                @Html.DropDownListFor(x => x.cat_id_fk, ViewBag.categorylist as SelectList, new { @class = "form-control", @style = "margin-bottom:15px;margin-top:15px;" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.pro_name, "Product Name:")
+                                @Html.TextBoxFor(x => x.pro_name, new { @class = "form-control", @placeholder = "Enter Product Name", @style = "margin-bottom:15px;margin-top:15px;" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.pro_price, "Product Price:")
+                                @Html.TextBoxFor(x => x.pro_price, new { @class = "form-control", @type = "number", @placeholder = "Enter Product Price", @style = "margin-bottom:15px;margin-top:15px;" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.pro_desc, "Product Desc:")
+                                @Html.TextAreaFor(x => x.pro_desc, new { @class = "form-control", @placeholder = "Enter Product Description", @style = "margin-bottom:15px;margin-top:15px;" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.u_contact, "Contact Detail:")
+                                @Html.TextBoxFor(x => x.u_contact, new { @class = "form-control", @type = "number", @placeholder = "Enter Your Contact Details", @style = "margin-bottom:15px;margin-top:15px;" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Product Images:")
+                                <input type="file" name="imgfiles" id="imgfiles" class="form-control-file" required multiple style="margin-bottom:15px;margin-top:15px;" />
+                            </div>
+
+                            <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary" id="thebutton" style="width: 20%; height: 40px; font-size: 16px;">Add Product</button>
+                            </div>
+                    }
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script>
+                  document.getElementById('signupform').addEventListener('submit', function(event) {
+                      event.preventDefault();
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Congrats!',
+                          text: 'Your Products Are Uploaded!'
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                              window.location.href = '@Url.Action("Add_Category", "Admin")';
+                              this.submit();
+                          }
+                      });
+                  });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@model PlantNest.Models.tbl_admin
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modernize Free</title>
+    <link rel="shortcut icon" type="image/png" href="~/AdminTemplate/assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="~/AdminTemplate/assets/css/styles.min.css" />
+</head>
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed" style="height: 100vh;">
+        <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-8 col-lg-6 col-xxl-3">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <a href="index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                                    <img src="https://snipboard.io/x51EIu.jpg" width="300" alt="">
+                                </a>
+                                <p class="text-center" style="margin-bottom: 50px;">Access Admin Panel By Entering Admin Credentials</p>
+                                @using (Html.BeginForm())
+                                {
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Username</label>
+                                @Html.TextBoxFor(x => x.ad_name, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Enter Your Username" })
+                            </div>
+                                            <div class="mb-4">
+                                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                                @Html.TextBoxFor(x => x.ad_password, new { @class = "form-control", @id = "exampleInputPassword1", @type = "password", @placeholder = "Enter Your Password" })
+                                            </div>
+                                                            <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">
+                                                                Sign In
+                                                            </button>
+                                 }
+                                @if (!string.IsNullOrEmpty(ViewBag.Error))
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewBag.Error
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/AdminTemplate/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/AdminTemplate/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminTemplate/assets/js/sidebarmenu.js"></script>
+    <script src="~/AdminTemplate/assets/js/app.min.js"></script>
+    <script src="~/AdminTemplate/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="~/AdminTemplate/assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="~/AdminTemplate/assets/js/dashboard.js"></script>
+</body>
+</html>

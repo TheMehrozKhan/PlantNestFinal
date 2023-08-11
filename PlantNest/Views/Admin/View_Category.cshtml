@@ -1,0 +1,82 @@
+﻿@model PagedList.IPagedList<PlantNest.Models.tbl_category>
+@{
+    Layout = null;
+}
+<style>
+    .card {
+        box-shadow: rgba(149, 157, 165, 0.1) 0px 2px 20px;
+        border-color: white;
+        transition: 0.2s;
+    }
+
+        .card:hover {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+
+    #thefirstlink {
+        color: black;
+        background-color: white;
+        border: none;
+    }
+
+        #thefirstlink:hover {
+            background-color: darkblue;
+            color: white;
+            border-color: white;
+        }
+</style>
+@Html.Partial("Layout")
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="body-wrapper">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container" style="border: 0.5px solid deepskyblue; width: 25%; padding-top: 10px; height: 45px; border-radius: 8px; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;margin-bottom:40px;">
+                            <h5 class="card-title fw-semibold mb-4 text-center">View Categories</h5>
+                        </div>
+                        <div class="row">
+                            <div class="row justify-content-center align-items-center" style="margin-top: 20px;">
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-md-4">
+                                            <div class="card mx-auto" style="margin-bottom: 20px;">
+                                                <div class="card-body">
+                                                    <img src="@Url.Content(item.cat_image)" style="width: 100%; border-radius: 8px;" class="theimg" />
+                                                    <h5 class="card-title" style="text-align: center; margin-top: 15px;font-weight:700;margin-bottom:15px;">@item.cat_name</h5>
+                                                    <div style="text-align: center;">
+                                                        <a href="@Url.Action("Edit_Category", "Admin", new { id = item.cat_id })" class="btn btn-primary" style="border-radius:5px;">Edit</a>
+                                                        <a href="@Url.Action("Delete", "Admin", new { id = item.cat_id })" class="btn btn-danger" style="border-radius:5px;">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                            <nav aria-label="..." style="margin-top: 50px;">
+                                <ul class="pagination pagination-md justify-content-center">
+                                    <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                                        <a class="page-link" href="@Url.Action("View_Category", new { page = Model.PageNumber - 1 })" id="thefirstlink">Previous</a>
+                                    </li>
+                                    @for (int i = 1; i <= Model.PageCount; i++)
+                                    {
+                                        <li class="page-item @(Model.PageNumber == i ? "active" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                                            <a class="page-link" href="@Url.Action("View_Category", new { page = i })" id="thefirstlink">@i</a>
+                                        </li>
+                                    }
+                                    <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+                                        <a class="page-link" href="@Url.Action("View_Category", new { page = Model.PageNumber + 1 })" id="thefirstlink">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
