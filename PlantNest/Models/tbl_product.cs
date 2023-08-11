@@ -26,14 +26,16 @@ namespace PlantNest.Models
         public string pro_image { get; set; }
         public string pro_desc { get; set; }
         public string u_contact { get; set; }
+        public Nullable<int> us_id_fk { get; set; }
         public Nullable<int> cat_id_fk { get; set; }
-        public Nullable<int> ad_id_fk { get; set; }
     
-        public virtual tbl_admin tbl_admin { get; set; }
         public virtual tbl_category tbl_category { get; set; }
         public virtual tbl_category tbl_category1 { get; set; }
         public virtual tbl_category tbl_category2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_order> tbl_order { get; set; }
+        public virtual tbl_user tbl_user { get; set; }
+        public virtual tbl_user tbl_user1 { get; set; }
+        public virtual tbl_user tbl_user2 { get; set; }
     }
 }

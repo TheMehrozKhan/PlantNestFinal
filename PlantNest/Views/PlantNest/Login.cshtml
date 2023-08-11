@@ -1,4 +1,9 @@
-﻿
+﻿﻿@model PlantNest.Models.tbl_user
+
+@{
+    ViewBag.Title = "Login";
+}
+
 <body>
 
     <main>
@@ -27,25 +32,23 @@
                         <div class="login-register">
                             <h3 class="login-register__title">Log In</h3>
 
-                            <form action="#">
+                            <form method="post">
                                 <div class="login-register__form">
                                     <!-- Single Form Start -->
                                     <div class="single-form">
-                                        <input class="single-form__input" type="text" placeholder="Username or email address *" />
+                                        <label for="username">Username:</label>
+                                        @Html.TextBoxFor(x => x.u_name, new { @class = "single-form__input", @placeholder = "Enter Your Username", @id = "custom-input" })
+                                        <span style="color: red">@Html.ValidationMessageFor(x => x.u_name)</span>
+                                    </div>
+
+                                    <div class="single-form">
+                                        <label for="password">Password:</label>
+                                        @Html.TextBoxFor(x => x.u_password, new { @class = "single-form__input", @placeholder = "Enter Your Password", @id = "custom-input", @type = "password" })
+                                        <span style="color: red">@Html.ValidationMessageFor(x => x.u_password)</span>
                                     </div>
                                     <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
                                     <div class="single-form">
-                                        <input class="single-form__input" type="password" placeholder="Password *" />
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <input class="single-form__input" type="checkbox" id="remember" />
-                                        <label for="remember" class="single-form__label checkbox-label">
-                                            <span></span> Remember
-                                            me
-                                        </label>
+
                                         <p class="lost-password">
                                             <a href="#">Lost your password?</a>
                                         </p>
@@ -81,6 +84,15 @@
                                     </a>
                                 </li>
                             </ul>
+                            @if (ViewBag.Error != null)
+                            {
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>@ViewBag.Error</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            }
                         </div>
                         <!-- Log In & Register Box End -->
                     </div>

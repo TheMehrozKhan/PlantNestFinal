@@ -1,4 +1,9 @@
-﻿
+﻿﻿@model PlantNest.Models.tbl_user
+
+@{
+    ViewBag.Title = "Register";
+}
+
 <body>
 
     <main>
@@ -27,16 +32,32 @@
                         <div class="login-register">
                             <h3 class="login-register__title">Register</h3>
 
-                            <form action="#">
+                            <form method="post">
                                 <div class="login-register__form">
                                     <!-- Single Form Start -->
                                     <div class="single-form">
-                                        <input class="single-form__input" type="email" placeholder="Email address *" />
+                                        <label for="username">Username:</label>
+                                        @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Username" } })
+                                        @Html.ValidationMessageFor(model => model.u_name, "", new { @class = "text-danger" })
                                     </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
                                     <div class="single-form">
-                                        <input class="single-form__input" type="password" placeholder="Password *" />
+                                        <label for="password">Email:</label>
+                                        @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Email" } })
+                                        @Html.ValidationMessageFor(model => model.u_email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="single-form">
+                                        <label for="password">Password:</label>
+                                        @Html.EditorFor(model => model.u_password, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Password", @type = "Password" } })
+                                        @Html.ValidationMessageFor(model => model.u_password, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="single-form">
+                                        <label for="password">Image:</label>
+                                        <input type="file" name="imgfile" id="imgfile" class="form-control-file" required />
+                                    </div>
+                                    <div class="single-form">
+                                        <label for="password">Contact:</label>
+                                        @Html.EditorFor(model => model.u_contact, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Contact Details" } })
+                                        @Html.ValidationMessageFor(model => model.u_contact, "", new { @class = "text-danger" })
                                     </div>
                                     <!-- Single Form Start -->
                                     <!-- Single Form Start -->

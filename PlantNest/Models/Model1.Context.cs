@@ -13,10 +13,10 @@ namespace PlantNest.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PlantNestEntities4 : DbContext
+    public partial class PlantNestEntities1 : DbContext
     {
-        public PlantNestEntities4()
-            : base("name=PlantNestEntities4")
+        public PlantNestEntities1()
+            : base("name=PlantNestEntities1")
         {
         }
     
