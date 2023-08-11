@@ -1,7 +1,5 @@
 ﻿﻿﻿@model PlantNest.Models.tbl_category
-@{
-    Layout = null;
-}
+@{ Layout = null; }
 @Html.Partial("Layout")
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed">
@@ -9,28 +7,27 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <div class="container" style="border: 0.5px solid deepskyblue; width: 25%; padding-top: 10px; height: 45px; border-radius: 8px; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;margin-bottom:40px;">
+                    <div class="container" style="border: 0.5px solid deepskyblue; width: 40%; padding-top: 10px; height: 45px; border-radius: 8px; box-shadow: rgba(100, 100, 111, 0.08) 0px 7px 29px 0px; margin-bottom: 40px;">
                         <h5 class="card-title fw-semibold mb-4 text-center">Edit Your Category</h5>
                     </div>
                     @using (Html.BeginForm("Save_Category", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "signupform" }))
                     {
-                        @Html.HiddenFor(model => model.cat_id)
+        @Html.HiddenFor(model => model.cat_id)
                         <br />
-                        <div class="form-group">
-                            <label>Category Name: </label>
-                            <br />
-                            @Html.TextBoxFor(model => model.cat_name, new { @class = "form-control", @style= "font-weight:600;" })
-                        </div>
-                        <br />
-                        <div class="form-group">
-                            <label>Update Category Image: </label>
-                            <br />
-                            <input type="file" name="imgfile" id="imgfile" class="form-control" />
-                        </div>
-                        <br />
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="@Url.Action("View_Category")" class="btn btn-default">Cancel</a>
-                    }
+                                        <div class="form-group">
+                                            <label>Category Name: </label>
+                                            <br />
+                                            @Html.TextBoxFor(model => model.cat_name, new { @class = "form-control", @style = "font-weight:600;" })
+                                        </div>
+                                                        <br />
+                                                                        <div class="form-group">
+                                                                            <label>Update Category Image: </label>
+                                                                            <br />
+                                                                            <input type="file" name="imgfile" id="imgfile" class="form-control" />
+                                                                        </div>
+                                                                                        <br />
+                                                                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                                                                                        <a href="@Url.Action("View_Category")" class="btn btn-default">Cancel</a>}
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script>
         document.getElementById('signupform').addEventListener('submit', function(event) {
