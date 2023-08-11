@@ -20,36 +20,41 @@
 
                     <div class="col-md-6">
                         <!-- Log In & Register Box Start -->
-                        <div class="login-register">
+                        <div class="login-register" style="border-radius: 12px; box-shadow: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;">
                             <form method="post" id="signupform">
                                 <div class="login-register__form">
                                     <div class="single-form">
-                                        <label for="username">Username:</label>
-                                        @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Username" } })
+                                        <label for="username" style="margin-bottom:7px;">Username:</label>
+                                        @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Username", @required = "required" } })
                                         @Html.ValidationMessageFor(model => model.u_name, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="single-form">
-                                        <label for="password">Email:</label>
-                                        @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Email" } })
+                                        <label for="password" style="margin-bottom:7px;">Email:</label>
+                                        @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Email", @required = "required", @type = "email" } })
                                         @Html.ValidationMessageFor(model => model.u_email, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="single-form">
-                                        <label for="password">Password:</label>
-                                        @Html.EditorFor(model => model.u_password, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Password", @type = "Password" } })
+                                        <label for="password" style="margin-bottom:7px;">Password:</label>
+                                        @Html.EditorFor(model => model.u_password, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Password", @type = "Password", @required = "required" } })
                                         @Html.ValidationMessageFor(model => model.u_password, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="single-form">
-                                        <label for="password">Phone Number:</label>
-                                        @Html.EditorFor(model => model.u_contact, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Contact Details" } })
+                                        <label for="password" style="margin-bottom:7px;">Phone Number:</label>
+                                        @Html.EditorFor(model => model.u_contact, new { htmlAttributes = new { @class = "single-form__input", @placeholder = "Enter Your Contact Details", @required = "required", @type = "number" } })
                                         @Html.ValidationMessageFor(model => model.u_contact, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="single-form" style="margin-top: 35px; margin-bottom: 35px;">
                                         <p class="login-register__title" style=" font-family: 'Poppins', sans-serif; text-align:center;font-size:15px;font-weight:500;">Fill Out The Form & Welcome to PlantNest!</p>
                                     </div>
-                                    <div class="single-form" style="display:flex;justify-content:center;align-items:center;">
-                                        <button class="single-form__btn btn">
-                                            Register
-                                        </button>
+                                    <div class="container" style="display: flex; justify-content: center;align-items:center;">
+                                        <div class="single-form" style="margin:10px">
+                                            <button class="single-form__btn btn" style="border-radius: 8px;">
+                                                Register
+                                            </button>
+                                        </div>
+                                        <div class="single-form" style="margin:10px">
+                                            <a href="@Url.Action("Login","PlantNest")" class="single-form__btn btn" style="border-radius: 8px;">Login</a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -60,19 +65,52 @@
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
-                  document.getElementById('signupform').addEventListener('submit', function(event) {
-                      event.preventDefault();
-                      Swal.fire({
-                          icon: 'success',
-                          title: 'Congrats!',
-                          text: 'Your Account Has Been Created!'
-                      }).then((result) => {
-                          if (result.isConfirmed) {
-                              window.location.href = '@Url.Action("Login", "PlantNest")';
-                              this.submit();
-                          }
-                      });
-                  });
+document.getElementById('signupform').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Regular expression patterns
+    var usernamePattern = /^[a-zA-Z0-9_]{3,20}$/;
+    var passwordPattern = /.{8,}/;
+    var phonePattern = /^\d{10}$/;
+
+    var username = document.getElementById('u_name').value;
+    var password = document.getElementById('u_password').value;
+    var phone = document.getElementById('u_contact').value;
+
+    if (!usernamePattern.test(username)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid Username',
+            text: 'Username must be 3-20 characters and can only contain letters, numbers, and underscores.'
+        });
+    } else if (!passwordPattern.test(password)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Weak Password',
+            text: 'Password must contain at least 8 Characters For Better Security.'
+        });
+    } else if (!phonePattern.test(phone)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid Phone Number',
+            text: 'Please enter a valid 10-digit phone number.'
+        });
+    } else {
+        Swal.fire({
+            icon: 'success',
+            title: 'Congrats!',
+            text: 'Your Account Has Been Created!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var loginUrl = @Html.Raw(Json.Encode(Url.Action("Login", "PlantNest")));
+                window.location.href = loginUrl;
+                this.submit();
+            }
+        });
+    }
+});
+
     </script>
 </body>

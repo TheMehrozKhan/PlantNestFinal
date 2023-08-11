@@ -3,38 +3,24 @@
 @{
     ViewBag.Title = "Login";
 }
-
 <body>
-
     <main>
-        <!-- Breadcrumb Start -->
         <div class="breadcrumb-section">
             <div class="container-fluid custom-container">
                 <div class="breadcrumb-wrapper text-center">
-                    <h2 class="breadcrumb-wrapper__title">
-                        Log In & Register
+                    <h2 class="breadcrumb-wrapper__title" style=" font-family: 'Poppins', sans-serif; ">
+                        Login Your Account
                     </h2>
-                    <ul class="breadcrumb-wrapper__items justify-content-center">
-                        <li><a href="index.html">Home</a></li>
-                        <li><span>Log In & Register </span></li>
-                    </ul>
                 </div>
             </div>
         </div>
-        <!-- Breadcrumb End -->
-        <!-- Log In & Register Start -->
-
         <div class="login-register-section section-padding-2">
             <div class="container-fluid custom-container">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <!-- Log In & Register Box Start -->
                         <div class="login-register">
-                            <h3 class="login-register__title">Log In</h3>
-
                             <form method="post">
                                 <div class="login-register__form">
-                                    <!-- Single Form Start -->
                                     <div class="single-form">
                                         <label for="username">Username:</label>
                                         @Html.TextBoxFor(x => x.u_name, new { @class = "single-form__input", @placeholder = "Enter Your Username", @id = "custom-input" })
@@ -46,45 +32,14 @@
                                         @Html.TextBoxFor(x => x.u_password, new { @class = "single-form__input", @placeholder = "Enter Your Password", @id = "custom-input", @type = "password" })
                                         <span style="color: red">@Html.ValidationMessageFor(x => x.u_password)</span>
                                     </div>
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-
-                                        <p class="lost-password">
-                                            <a href="#">Lost your password?</a>
-                                        </p>
-                                    </div>
-                                    <!-- Single Form Start -->
-                                    <!-- Single Form Start -->
-                                    <div class="single-form">
-                                        <button class="single-form__btn btn">
+                                    <div class="single-form" style="display:flex;justify-content:center;align-items:center;">
+                                        <button class="single-form__btn btn" style="border-radius: 8px;">
                                             Log In
                                         </button>
                                     </div>
-                                    <!-- Single Form Start -->
                                 </div>
                             </form>
-
-                            <ul class="login-register__social">
-                                <li>
-                                    <a class="social-facebook" href="#">
-                                        <span class="social-icon">
-                                            <img src="/Template/assets/images/facebook.svg"
-                                                 alt="Facebook" />
-                                        </span>
-                                        <span class="social-text">Login with Facebook</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="social-google" href="#">
-                                        <span class="social-icon">
-                                            <img src="/Template/assets/images/google.svg"
-                                                 alt="Facebook" />
-                                        </span>
-                                        <span class="social-text">Login with Google</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <h5 class="text-center mt-5" style="font-size:16px;">
+                            <h5 class="text-center mt-5" style="font-size: 16px; font-family: 'Poppins', sans-serif; ">
                                 Don't have an account? @Html.ActionLink("Register here", "Register")
                             </h5>
                             @if (ViewBag.Error != null)
@@ -97,81 +52,10 @@
                                 </div>
                             }
                         </div>
-                        <!-- Log In & Register Box End -->
                     </div>
-
-                    <!-- Log In & Register Box End -->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
-        <!-- Log In & Register End -->
-        <!-- Newsletter Start -->
-        <!-- Newsletter Start -->
-        <div class="newsletter-section">
-            <div class="newsletter-left" style="background-image: url(/Template/assets/images/newsletter-bg-1.jpg)">
-                <!-- Newsletter Wrapper Start -->
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title">Follow us on</h4>
-                    <p>
-                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                        lectus, vehicula vel euismod sed, vulputate
-                    </p>
-
-                    <div class="newsletter-social">
-                        <ul class="newsletter-social__list">
-                            <li>
-                                <a href="#" aria-label="facebook">
-                                    <i class="lastudioicon-b-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="twitter">
-                                    <i class="lastudioicon-b-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="instagram">
-                                    <i class="lastudioicon-b-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="vimeo">
-                                    <i class="lastudioicon-b-vimeo"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="envato">
-                                    <i class="lastudioicon-envato"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Newsletter Wrapper End -->
-            </div>
-            <div class="newsletter-right" style="background-image: url(/Template/assets/images/newsletter-bg-2.jpg)">
-                <!-- Newsletter Wrapper Start -->
-                <div class="newsletter-wrapper text-center">
-                    <h4 class="newsletter-wrapper__title">10% off when you sign up</h4>
-                    <p>
-                        Proin volutpat vitae libero at tincidunt. Maecenas sapien
-                        lectus, vehicula vel euismod sed, vulputate
-                    </p>
-                    <form action="#">
-                        <div class="newsletter-form-style-1">
-                            <input type="text" placeholder="Enter your email address..." />
-                            <button>Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- Newsletter Wrapper End -->
-            </div>
-        </div>
-        <!-- Newsletter End -->
-        <!-- Newsletter End -->
     </main>
-
-
 </body>
 
