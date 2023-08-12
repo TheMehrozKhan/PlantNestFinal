@@ -172,8 +172,8 @@
                     @if (Session["u_id"] != null)
                     {
                         <div style="margin-top:20px;">
-                            <a href="@Url.Action("Edit_Profile", "User", new { id = Model.u_id })" class="btn btn-primary" style="border-radius: 5px; padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; font-size: 17px; background-color: dodgerblue; border: none; color:white;">Edit</a>
-                            <a href="@Url.Action("Logout", "User", new { id = Model.u_id })" class="btn btn-primary" style="border-radius: 5px; padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; font-size: 17px; background-color: darkorange; border: none; color: white; ">Logout</a>
+                            <a href="@Url.Action("Edit_Profile", "PlantNest", new { id = Model.u_id })" class="btn btn-primary" style="border-radius: 5px; padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; font-size: 17px; background-color: dodgerblue; border: none; color:white;">Edit</a>
+                            <a href="@Url.Action("Logout", "PlantNest", new { id = Model.u_id })" class="btn btn-primary" style="border-radius: 5px; padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; font-size: 17px; background-color: darkorange; border: none; color: white; ">Logout</a>
                         </div>
                     }
                 </div>

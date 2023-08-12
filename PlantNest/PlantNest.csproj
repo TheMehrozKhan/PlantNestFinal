@@ -404,6 +404,7 @@
     <Content Include="Views\Admin\RegisteredUser.cshtml" />
     <Content Include="Views\Admin\ViewAllProducts.cshtml" />
     <Content Include="Views\PlantNest\Profile.cshtml" />
+    <Content Include="Views\PlantNest\Edit_Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
