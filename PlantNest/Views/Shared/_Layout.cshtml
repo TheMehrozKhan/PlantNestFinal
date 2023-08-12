@@ -107,8 +107,9 @@
                                 {
                                     <style>
                                         #thebtn {
-                                            background-color:black;
+                                            background-color: black;
                                         }
+
                                             #thebtn:hover {
                                                 background-color: #60C38D;
                                             }
@@ -116,14 +117,14 @@
                                     <ul class="header-mid-meta__item justify-content-end">
                                         <li>
                                             <button class="single-form__btn btn" id="thebtn" style="border-radius: 8px; padding-left: 25px; padding-right: 25px; padding-top: 15px; padding-bottom: 15px;">
-                                               <a href="@Url.Action("Login","PlantNest")" style="color: white;">
-                                                   Login Now
-                                               </a>
+                                                <a href="@Url.Action("Login","PlantNest")" style="color: white;">
+                                                    Login Now
+                                                </a>
                                             </button>
                                         </li>
                                     </ul>
                                 }
-                                </div>
+                            </div>
                             <div class="header-mid-toggle text-end d-lg-none">
                                 <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Menu">
                                     <i class="lastudioicon-menu-4-2"></i>
@@ -424,9 +425,9 @@
             <div class="modal-content">
                 <!-- Search Form Start  -->
                 <div class="search-modal__form">
-                    <form action="#">
-                        <input type="text" placeholder="Search product…" />
-                        <button class="" aria-label="search">
+                    <form action="#" id="searchForm">
+                        <input type="text" id="searchInput" placeholder="Search product…" />
+                        <button class="" aria-label="search" type="submit">
                             <i class="lastudioicon-zoom-1"></i>
                         </button>
                     </form>
@@ -435,6 +436,18 @@
             </div>
         </div>
     </div>
+
+    <script>
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var searchTerm = document.getElementById('searchInput').value.trim();
+        if (searchTerm !== '') {
+            // Redirect to the Search action with the search term
+            window.location.href = '@Url.Action("Search", "PlantNest")?search=' + encodeURIComponent(searchTerm);
+        }
+    });
+    </script>
+
 
     <div class="offcanvas offcanvas-end offcanvas-sidebar" tabindex="-1" id="offcanvasSidebar">
         <button type="button" class="offcanvas-sidebar__close" data-bs-dismiss="offcanvas" aria-label="remove">

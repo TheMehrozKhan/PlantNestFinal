@@ -1,4 +1,5 @@
-﻿using PlantNest.Models;
+﻿using PagedList;
+using PlantNest.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,7 @@ namespace PlantNest.Controllers
 {
     public class PlantNestController : Controller
     {
-        PlantNestEntities3 db = new PlantNestEntities3();
+        PlantNestEntities db = new PlantNestEntities();
 
         public ActionResult Index()
         {
@@ -98,8 +99,6 @@ namespace PlantNest.Controllers
                 return RedirectToAction("Login");
         }
 
-
-
         public ActionResult Profile(int? id)
         {
             int userId = Convert.ToInt32(Session["u_id"]);
@@ -146,6 +145,36 @@ namespace PlantNest.Controllers
                 return RedirectToAction("Profile");
             }
             return View(user);
+        }
+
+        public ActionResult Search(int? id, int? page, string search)
+        {
+            int pageSize = 6;
+            int pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+
+            var productList = db.tbl_product.Where(x => x.pro_name.ToLower().Contains(search.ToLower()) || x.pro_desc.ToLower().Contains(search.ToLower())).OrderByDescending(x => x.pro_id).ToList();
+
+            List<ProductViewModel> products = new List<ProductViewModel>();
+
+            foreach (var product in productList)
+            {
+                ProductViewModel viewModel = new ProductViewModel
+                {
+                    pro_id = product.pro_id,
+                    pro_name = product.pro_name,
+                    pro_price = product.pro_price,
+                    pro_desc = product.pro_desc,
+                    pro_images = product.pro_image.Split(',').ToList()
+                };
+
+                products.Add(viewModel);
+            }
+
+            IPagedList<ProductViewModel> pro = products.ToPagedList(pageIndex, pageSize);
+
+            int totalProductsFound = productList.Count;
+            ViewBag.TotalProductsFound = totalProductsFound;
+            return View(pro);
         }
 
 

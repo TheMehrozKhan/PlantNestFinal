@@ -11,7 +11,7 @@ namespace PlantNest.Controllers
 {
     public class AdminController : Controller
     {
-        PlantNestEntities3 db = new PlantNestEntities3();
+        PlantNestEntities db = new PlantNestEntities();
         [HttpGet]
         public ActionResult Login()
         {

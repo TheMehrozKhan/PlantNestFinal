@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="378199b5ce7841f1a586b55c930f7a21" Name="Diagram1">
+      <Diagram DiagramId="a87cc583bf2a4e448efc64cfdad06047" Name="Diagram1">
         <EntityTypeShape EntityType="PlantNestModel.tbl_admin" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PlantNestModel.tbl_category" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PlantNestModel.tbl_invoice" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PlantNestModel.tbl_order" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="PlantNestModel.tbl_product" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PlantNestModel.tbl_user" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_categ__ad_id__5629CD9C" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_categ__ad_id__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_categ__ad_id__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_produ__ad_id__6E01572D" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_produ__cat_i__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_produ__cat_i__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_produ__cat_i__5DCAEF64" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_invoi__in_fk__59063A47" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_order__o_fk___5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="PlantNestModel.FK__tbl_order__o_fk___59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_categ__ad_id__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_categ__ad_id__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_categ__ad_id__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_produ__ad_id__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_produ__cat_i__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_produ__cat_i__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_produ__cat_i__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_invoi__in_fk__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_order__o_fk___35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="PlantNestModel.FK__tbl_order__o_fk___34C8D9D1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
