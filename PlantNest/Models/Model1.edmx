@@ -110,7 +110,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbl_categ__ad_id__403A8C7D">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__ad_id__412EB0B6">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__ad_id__4222D4EF">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tbl_invoi__in_fk__33D4B598">
+          <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+          <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_user">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="tbl_invoice">
+              <PropertyRef Name="in_fk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_invoi__in_fk__4316F928">
           <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
           <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
           <ReferentialConstraint>
@@ -146,7 +194,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbl_order__o_fk___440B1D61">
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="0..1" />
+          <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_product">
+              <PropertyRef Name="pro_id" />
+            </Principal>
+            <Dependent Role="tbl_order">
+              <PropertyRef Name="o_fk_pro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_order__o_fk___44FF419A">
+          <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="0..1" />
+          <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_invoice">
+              <PropertyRef Name="in_id" />
+            </Principal>
+            <Dependent Role="tbl_order">
+              <PropertyRef Name="o_fk_invoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tbl_produ__ad_id__36B12243">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__ad_id__45F365D3">
           <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
           <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -194,6 +278,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbl_produ__cat_i__46E78A0C">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__cat_i__47DBAE45">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__cat_i__48CFD27E">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PlantNestModelStoreContainer">
           <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
@@ -213,7 +333,23 @@
             <End Role="tbl_admin" EntitySet="tbl_admin" />
             <End Role="tbl_category" EntitySet="tbl_category" />
           </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__ad_id__403A8C7D" Association="Self.FK__tbl_categ__ad_id__403A8C7D">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__ad_id__412EB0B6" Association="Self.FK__tbl_categ__ad_id__412EB0B6">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__ad_id__4222D4EF" Association="Self.FK__tbl_categ__ad_id__4222D4EF">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
           <AssociationSet Name="FK__tbl_invoi__in_fk__33D4B598" Association="Self.FK__tbl_invoi__in_fk__33D4B598">
+            <End Role="tbl_user" EntitySet="tbl_user" />
+            <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_invoi__in_fk__4316F928" Association="Self.FK__tbl_invoi__in_fk__4316F928">
             <End Role="tbl_user" EntitySet="tbl_user" />
             <End Role="tbl_invoice" EntitySet="tbl_invoice" />
           </AssociationSet>
@@ -225,7 +361,19 @@
             <End Role="tbl_invoice" EntitySet="tbl_invoice" />
             <End Role="tbl_order" EntitySet="tbl_order" />
           </AssociationSet>
+          <AssociationSet Name="FK__tbl_order__o_fk___440B1D61" Association="Self.FK__tbl_order__o_fk___440B1D61">
+            <End Role="tbl_product" EntitySet="tbl_product" />
+            <End Role="tbl_order" EntitySet="tbl_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_order__o_fk___44FF419A" Association="Self.FK__tbl_order__o_fk___44FF419A">
+            <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+            <End Role="tbl_order" EntitySet="tbl_order" />
+          </AssociationSet>
           <AssociationSet Name="FK__tbl_produ__ad_id__36B12243" Association="Self.FK__tbl_produ__ad_id__36B12243">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__ad_id__45F365D3" Association="Self.FK__tbl_produ__ad_id__45F365D3">
             <End Role="tbl_admin" EntitySet="tbl_admin" />
             <End Role="tbl_product" EntitySet="tbl_product" />
           </AssociationSet>
@@ -238,6 +386,18 @@
             <End Role="tbl_product" EntitySet="tbl_product" />
           </AssociationSet>
           <AssociationSet Name="FK__tbl_produ__cat_i__398D8EEE" Association="Self.FK__tbl_produ__cat_i__398D8EEE">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__46E78A0C" Association="Self.FK__tbl_produ__cat_i__46E78A0C">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__47DBAE45" Association="Self.FK__tbl_produ__cat_i__47DBAE45">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__48CFD27E" Association="Self.FK__tbl_produ__cat_i__48CFD27E">
             <End Role="tbl_category" EntitySet="tbl_category" />
             <End Role="tbl_product" EntitySet="tbl_product" />
           </AssociationSet>
@@ -258,7 +418,11 @@
           <NavigationProperty Name="tbl_category" Relationship="Self.FK__tbl_categ__ad_id__30F848ED" FromRole="tbl_admin" ToRole="tbl_category" />
           <NavigationProperty Name="tbl_category1" Relationship="Self.FK__tbl_categ__ad_id__31EC6D26" FromRole="tbl_admin" ToRole="tbl_category" />
           <NavigationProperty Name="tbl_category2" Relationship="Self.FK__tbl_categ__ad_id__32E0915F" FromRole="tbl_admin" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category3" Relationship="Self.FK__tbl_categ__ad_id__403A8C7D" FromRole="tbl_admin" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category4" Relationship="Self.FK__tbl_categ__ad_id__412EB0B6" FromRole="tbl_admin" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category5" Relationship="Self.FK__tbl_categ__ad_id__4222D4EF" FromRole="tbl_admin" ToRole="tbl_category" />
           <NavigationProperty Name="tbl_product" Relationship="Self.FK__tbl_produ__ad_id__36B12243" FromRole="tbl_admin" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product1" Relationship="Self.FK__tbl_produ__ad_id__45F365D3" FromRole="tbl_admin" ToRole="tbl_product" />
         </EntityType>
         <EntityType Name="tbl_category">
           <Key>
@@ -272,9 +436,15 @@
           <NavigationProperty Name="tbl_admin" Relationship="Self.FK__tbl_categ__ad_id__30F848ED" FromRole="tbl_category" ToRole="tbl_admin" />
           <NavigationProperty Name="tbl_admin1" Relationship="Self.FK__tbl_categ__ad_id__31EC6D26" FromRole="tbl_category" ToRole="tbl_admin" />
           <NavigationProperty Name="tbl_admin2" Relationship="Self.FK__tbl_categ__ad_id__32E0915F" FromRole="tbl_category" ToRole="tbl_admin" />
+          <NavigationProperty Name="tbl_admin3" Relationship="Self.FK__tbl_categ__ad_id__403A8C7D" FromRole="tbl_category" ToRole="tbl_admin" />
+          <NavigationProperty Name="tbl_admin4" Relationship="Self.FK__tbl_categ__ad_id__412EB0B6" FromRole="tbl_category" ToRole="tbl_admin" />
+          <NavigationProperty Name="tbl_admin5" Relationship="Self.FK__tbl_categ__ad_id__4222D4EF" FromRole="tbl_category" ToRole="tbl_admin" />
           <NavigationProperty Name="tbl_product" Relationship="Self.FK__tbl_produ__cat_i__37A5467C" FromRole="tbl_category" ToRole="tbl_product" />
           <NavigationProperty Name="tbl_product1" Relationship="Self.FK__tbl_produ__cat_i__38996AB5" FromRole="tbl_category" ToRole="tbl_product" />
           <NavigationProperty Name="tbl_product2" Relationship="Self.FK__tbl_produ__cat_i__398D8EEE" FromRole="tbl_category" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product3" Relationship="Self.FK__tbl_produ__cat_i__46E78A0C" FromRole="tbl_category" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product4" Relationship="Self.FK__tbl_produ__cat_i__47DBAE45" FromRole="tbl_category" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product5" Relationship="Self.FK__tbl_produ__cat_i__48CFD27E" FromRole="tbl_category" ToRole="tbl_product" />
         </EntityType>
         <EntityType Name="tbl_invoice">
           <Key>
@@ -285,7 +455,9 @@
           <Property Name="in_date" Type="DateTime" Precision="3" />
           <Property Name="in_totalbill" Type="Int32" />
           <NavigationProperty Name="tbl_user" Relationship="Self.FK__tbl_invoi__in_fk__33D4B598" FromRole="tbl_invoice" ToRole="tbl_user" />
+          <NavigationProperty Name="tbl_user1" Relationship="Self.FK__tbl_invoi__in_fk__4316F928" FromRole="tbl_invoice" ToRole="tbl_user" />
           <NavigationProperty Name="tbl_order" Relationship="Self.FK__tbl_order__o_fk___35BCFE0A" FromRole="tbl_invoice" ToRole="tbl_order" />
+          <NavigationProperty Name="tbl_order1" Relationship="Self.FK__tbl_order__o_fk___44FF419A" FromRole="tbl_invoice" ToRole="tbl_order" />
         </EntityType>
         <EntityType Name="tbl_order">
           <Key>
@@ -304,7 +476,9 @@
           <Property Name="u_pin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="u_expiry_date" Type="DateTime" Precision="0" />
           <NavigationProperty Name="tbl_invoice" Relationship="Self.FK__tbl_order__o_fk___35BCFE0A" FromRole="tbl_order" ToRole="tbl_invoice" />
+          <NavigationProperty Name="tbl_invoice1" Relationship="Self.FK__tbl_order__o_fk___44FF419A" FromRole="tbl_order" ToRole="tbl_invoice" />
           <NavigationProperty Name="tbl_product" Relationship="Self.FK__tbl_order__o_fk___34C8D9D1" FromRole="tbl_order" ToRole="tbl_product" />
+          <NavigationProperty Name="tbl_product1" Relationship="Self.FK__tbl_order__o_fk___440B1D61" FromRole="tbl_order" ToRole="tbl_product" />
         </EntityType>
         <EntityType Name="tbl_product">
           <Key>
@@ -319,10 +493,15 @@
           <Property Name="cat_id_fk" Type="Int32" />
           <Property Name="ad_id_fk" Type="Int32" />
           <NavigationProperty Name="tbl_admin" Relationship="Self.FK__tbl_produ__ad_id__36B12243" FromRole="tbl_product" ToRole="tbl_admin" />
+          <NavigationProperty Name="tbl_admin1" Relationship="Self.FK__tbl_produ__ad_id__45F365D3" FromRole="tbl_product" ToRole="tbl_admin" />
           <NavigationProperty Name="tbl_category" Relationship="Self.FK__tbl_produ__cat_i__37A5467C" FromRole="tbl_product" ToRole="tbl_category" />
           <NavigationProperty Name="tbl_category1" Relationship="Self.FK__tbl_produ__cat_i__38996AB5" FromRole="tbl_product" ToRole="tbl_category" />
           <NavigationProperty Name="tbl_category2" Relationship="Self.FK__tbl_produ__cat_i__398D8EEE" FromRole="tbl_product" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category3" Relationship="Self.FK__tbl_produ__cat_i__46E78A0C" FromRole="tbl_product" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category4" Relationship="Self.FK__tbl_produ__cat_i__47DBAE45" FromRole="tbl_product" ToRole="tbl_category" />
+          <NavigationProperty Name="tbl_category5" Relationship="Self.FK__tbl_produ__cat_i__48CFD27E" FromRole="tbl_product" ToRole="tbl_category" />
           <NavigationProperty Name="tbl_order" Relationship="Self.FK__tbl_order__o_fk___34C8D9D1" FromRole="tbl_product" ToRole="tbl_order" />
+          <NavigationProperty Name="tbl_order1" Relationship="Self.FK__tbl_order__o_fk___440B1D61" FromRole="tbl_product" ToRole="tbl_order" />
         </EntityType>
         <EntityType Name="tbl_user">
           <Key>
@@ -335,6 +514,7 @@
           <Property Name="u_contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="u_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_invoice" Relationship="Self.FK__tbl_invoi__in_fk__33D4B598" FromRole="tbl_user" ToRole="tbl_invoice" />
+          <NavigationProperty Name="tbl_invoice1" Relationship="Self.FK__tbl_invoi__in_fk__4316F928" FromRole="tbl_user" ToRole="tbl_invoice" />
         </EntityType>
         <Association Name="FK__tbl_categ__ad_id__30F848ED">
           <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
@@ -372,7 +552,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbl_categ__ad_id__403A8C7D">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__ad_id__412EB0B6">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__ad_id__4222D4EF">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_category">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tbl_produ__ad_id__36B12243">
+          <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_admin">
+              <PropertyRef Name="ad_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="ad_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__ad_id__45F365D3">
           <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
           <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -420,7 +648,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbl_produ__cat_i__46E78A0C">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__cat_i__47DBAE45">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_produ__cat_i__48CFD27E">
+          <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_category">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tbl_product">
+              <PropertyRef Name="cat_id_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tbl_invoi__in_fk__33D4B598">
+          <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+          <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_user">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="tbl_invoice">
+              <PropertyRef Name="in_fk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_invoi__in_fk__4316F928">
           <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
           <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
           <ReferentialConstraint>
@@ -444,6 +720,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__tbl_order__o_fk___44FF419A">
+          <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="0..1" />
+          <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_invoice">
+              <PropertyRef Name="in_id" />
+            </Principal>
+            <Dependent Role="tbl_order">
+              <PropertyRef Name="o_fk_invoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__tbl_order__o_fk___34C8D9D1">
           <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="0..1" />
           <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
@@ -456,7 +744,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PlantNestEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__tbl_order__o_fk___440B1D61">
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="0..1" />
+          <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_product">
+              <PropertyRef Name="pro_id" />
+            </Principal>
+            <Dependent Role="tbl_order">
+              <PropertyRef Name="o_fk_pro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PlantNestEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" />
           <EntitySet Name="tbl_category" EntityType="Self.tbl_category" />
           <EntitySet Name="tbl_invoice" EntityType="Self.tbl_invoice" />
@@ -475,7 +775,23 @@
             <End Role="tbl_admin" EntitySet="tbl_admin" />
             <End Role="tbl_category" EntitySet="tbl_category" />
           </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__ad_id__403A8C7D" Association="Self.FK__tbl_categ__ad_id__403A8C7D">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__ad_id__412EB0B6" Association="Self.FK__tbl_categ__ad_id__412EB0B6">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__ad_id__4222D4EF" Association="Self.FK__tbl_categ__ad_id__4222D4EF">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_category" EntitySet="tbl_category" />
+          </AssociationSet>
           <AssociationSet Name="FK__tbl_produ__ad_id__36B12243" Association="Self.FK__tbl_produ__ad_id__36B12243">
+            <End Role="tbl_admin" EntitySet="tbl_admin" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__ad_id__45F365D3" Association="Self.FK__tbl_produ__ad_id__45F365D3">
             <End Role="tbl_admin" EntitySet="tbl_admin" />
             <End Role="tbl_product" EntitySet="tbl_product" />
           </AssociationSet>
@@ -491,7 +807,23 @@
             <End Role="tbl_category" EntitySet="tbl_category" />
             <End Role="tbl_product" EntitySet="tbl_product" />
           </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__46E78A0C" Association="Self.FK__tbl_produ__cat_i__46E78A0C">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__47DBAE45" Association="Self.FK__tbl_produ__cat_i__47DBAE45">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_produ__cat_i__48CFD27E" Association="Self.FK__tbl_produ__cat_i__48CFD27E">
+            <End Role="tbl_category" EntitySet="tbl_category" />
+            <End Role="tbl_product" EntitySet="tbl_product" />
+          </AssociationSet>
           <AssociationSet Name="FK__tbl_invoi__in_fk__33D4B598" Association="Self.FK__tbl_invoi__in_fk__33D4B598">
+            <End Role="tbl_user" EntitySet="tbl_user" />
+            <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_invoi__in_fk__4316F928" Association="Self.FK__tbl_invoi__in_fk__4316F928">
             <End Role="tbl_user" EntitySet="tbl_user" />
             <End Role="tbl_invoice" EntitySet="tbl_invoice" />
           </AssociationSet>
@@ -499,7 +831,15 @@
             <End Role="tbl_invoice" EntitySet="tbl_invoice" />
             <End Role="tbl_order" EntitySet="tbl_order" />
           </AssociationSet>
+          <AssociationSet Name="FK__tbl_order__o_fk___44FF419A" Association="Self.FK__tbl_order__o_fk___44FF419A">
+            <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+            <End Role="tbl_order" EntitySet="tbl_order" />
+          </AssociationSet>
           <AssociationSet Name="FK__tbl_order__o_fk___34C8D9D1" Association="Self.FK__tbl_order__o_fk___34C8D9D1">
+            <End Role="tbl_product" EntitySet="tbl_product" />
+            <End Role="tbl_order" EntitySet="tbl_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_order__o_fk___440B1D61" Association="Self.FK__tbl_order__o_fk___440B1D61">
             <End Role="tbl_product" EntitySet="tbl_product" />
             <End Role="tbl_order" EntitySet="tbl_order" />
           </AssociationSet>
@@ -509,7 +849,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PlantNestModelStoreContainer" CdmEntityContainer="PlantNestEntities">
+        <EntityContainerMapping StorageEntityContainer="PlantNestModelStoreContainer" CdmEntityContainer="PlantNestEntities1">
           <EntitySetMapping Name="tbl_admin">
             <EntityTypeMapping TypeName="PlantNestModel.tbl_admin">
               <MappingFragment StoreEntitySet="tbl_admin">

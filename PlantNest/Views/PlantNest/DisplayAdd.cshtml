@@ -1,0 +1,73 @@
+﻿@model PagedList.IPagedList<PlantNest.Models.tbl_product>
+@{
+    ViewBag.Title = "DisplayAdd";
+    var categoryName = ViewData["CategoryName"] as string;
+}
+
+<body>
+    <main>
+        <div class="container mt-100">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-12">
+                    <div class="d-flex justify-content-between flex-wrap">
+                        @if (categoryName != null)
+                        {
+                            <div class="d-flex align-items-end">
+                                <h2 class="mb-0">Our @categoryName Products</h2>
+                            </div>
+                        }
+                        else
+                        {
+                            <h2>Our Products</h2>
+                        }
+                    </div>
+                    <div class="row">
+                        @if (Model != null && Model.Count > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                var imagePaths = item.pro_image.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                if (imagePaths.Length > 0)
+                                {
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                                        <div class="card">
+                                            <a href="@Url.Action("ProductDetails", new { id = item.pro_id })">
+                                                <img class="card-img-top" src="@Url.Content(imagePaths[0])" alt="product-img">
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <a href="@Url.Action("ProductDetails", new { id = item.pro_id })">@item.pro_name</a>
+                                                </h5>
+                                                <p class="card-text">@item.pro_desc</p>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <span>@item.pro_price/PKR</span>
+                                                <a href="@Url.Action("ProductDetails", new { id = item.pro_id })" class="btn btn-primary">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                    <nav aria-label="..." style="margin-top: 50px;">
+                        <ul class="pagination pagination-md justify-content-center">
+                            <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                                <a class="page-link" href="@Url.Action("DisplayAdd", new { page = Model.PageNumber - 1 })">Previous</a>
+                            </li>
+                            @for (int i = 1; i <= Model.PageCount; i++)
+                            {
+                                <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                                    <a class="page-link" href="@Url.Action("DisplayAdd", new { page = i })">@i</a>
+                                </li>
+                            }
+                            <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                                <a class="page-link" href="@Url.Action("DisplayAdd", new { page = Model.PageNumber + 1 })">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

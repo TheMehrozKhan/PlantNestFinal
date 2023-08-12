@@ -18,6 +18,7 @@ namespace PlantNest.Models
         public tbl_user()
         {
             this.tbl_invoice = new HashSet<tbl_invoice>();
+            this.tbl_invoice1 = new HashSet<tbl_invoice>();
         }
     
         public int u_id { get; set; }
@@ -29,5 +30,7 @@ namespace PlantNest.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_invoice> tbl_invoice { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_invoice> tbl_invoice1 { get; set; }
     }
 }

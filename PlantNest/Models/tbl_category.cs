@@ -20,6 +20,9 @@ namespace PlantNest.Models
             this.tbl_product = new HashSet<tbl_product>();
             this.tbl_product1 = new HashSet<tbl_product>();
             this.tbl_product2 = new HashSet<tbl_product>();
+            this.tbl_product3 = new HashSet<tbl_product>();
+            this.tbl_product4 = new HashSet<tbl_product>();
+            this.tbl_product5 = new HashSet<tbl_product>();
         }
     
         public int cat_id { get; set; }
@@ -31,11 +34,20 @@ namespace PlantNest.Models
         public virtual tbl_admin tbl_admin { get; set; }
         public virtual tbl_admin tbl_admin1 { get; set; }
         public virtual tbl_admin tbl_admin2 { get; set; }
+        public virtual tbl_admin tbl_admin3 { get; set; }
+        public virtual tbl_admin tbl_admin4 { get; set; }
+        public virtual tbl_admin tbl_admin5 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_product> tbl_product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_product> tbl_product1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_product> tbl_product2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_product> tbl_product3 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_product> tbl_product4 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_product> tbl_product5 { get; set; }
     }
 }
