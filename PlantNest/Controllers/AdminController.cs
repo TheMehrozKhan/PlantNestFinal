@@ -42,8 +42,37 @@ namespace PlantNest.Controllers
             {
                 return RedirectToAction("Login");
             }
+
+            var userInvoices = (from u in db.tbl_user
+                                join i in db.tbl_invoice on u.u_id equals i.in_fk_user
+                                select new UserInvoiceViewModel
+                                {
+                                    in_id = (int)i.in_id,
+                                    u_id = (int)u.u_id,
+                                    u_name = u.u_name,
+                                    in_totallbill = (int)i.in_totalbill,
+                                    in_date = (DateTime)i.in_date
+                                }).ToList();
+
+            var products = db.tbl_product.ToList();
+            var orders = db.tbl_order.ToList();
+
+            ViewBag.Orders = orders;
+            ViewBag.UserInvoices = userInvoices;
+            ViewBag.Products = products;
+            ViewBag.ToastMessage = TempData["ToastMessage"];
+
+            int totalOrders = orders.Count;
+            ViewBag.TotalOrders = totalOrders;
+
+            int totalProducts = products.Count;
+            ViewBag.totalProducts = totalProducts;
+
             return View();
         }
+
+
+
         [HttpGet]
         public ActionResult Add_Category()
         {
@@ -224,6 +253,24 @@ namespace PlantNest.Controllers
         {
             List<tbl_user> user_list = db.tbl_user.ToList();
             return View(user_list);
+        }
+
+        public ActionResult ViewUserOrders()
+        {
+            List<tbl_order> userOrders = db.tbl_order.ToList();
+            return View(userOrders);
+        }
+
+        public ActionResult ViewUserInvoices()
+        {
+            List<tbl_invoice> userInvoices = db.tbl_invoice.ToList();
+            return View(userInvoices);
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
         }
 
         public string uploadimage(HttpPostedFileBase file)

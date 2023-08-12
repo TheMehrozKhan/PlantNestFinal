@@ -103,15 +103,19 @@ namespace PlantNest.Controllers
         {
             int userId = Convert.ToInt32(Session["u_id"]);
 
+            // Fetch user orders
+            List<tbl_order> userOrders = db.tbl_order.Where(order => order.tbl_invoice.in_fk_user == userId).ToList();
 
             if (id == null)
             {
                 tbl_user user = db.tbl_user.FirstOrDefault(u => u.u_id == userId);
+                ViewBag.UserOrders = userOrders;
                 return View(user);
             }
 
             return View("ProfileNotFound");
         }
+
 
         [HttpGet]
         public ActionResult Edit_Profile(int id)
@@ -159,7 +163,6 @@ namespace PlantNest.Controllers
 
             return View(cateList);
         }
-
 
         public ActionResult DisplayAdd(int? id, int? page, string search)
         {
@@ -380,7 +383,7 @@ namespace PlantNest.Controllers
 
             db.SaveChanges();
             Session["cart"] = null;
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("Index", "PlantNest");
         }
 
         public ActionResult Add_Wishlist(int? id)

@@ -175,6 +175,30 @@
                             <a href="@Url.Action("Edit_Profile", "PlantNest", new { id = Model.u_id })" class="btn btn-primary" style="border-radius: 5px; padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; font-size: 17px; background-color: dodgerblue; border: none; color:white;">Edit</a>
                             <a href="@Url.Action("Logout", "PlantNest", new { id = Model.u_id })" class="btn btn-primary" style="border-radius: 5px; padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; font-size: 17px; background-color: darkorange; border: none; color: white; ">Logout</a>
                         </div>
+                        <div class="mt-15" style="margin-top:50px;">
+                            <h4 class="text-center">User Orders</h4>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Order Date</th>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var order in ViewBag.UserOrders)
+                                    {
+                                        <tr>
+                                            <td>@order.o_date.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td>@order.tbl_product.pro_name</td>
+                                            <td>@order.o_qty</td>
+                                            <td>@order.o_bill</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     }
                 </div>
             </div>
