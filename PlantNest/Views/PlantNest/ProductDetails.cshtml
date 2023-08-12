@@ -67,7 +67,9 @@
                                             </button>
                                         </div>
                                         <div class="buy-it-now-btn mt-2">
-                                            <button type="submit" class="btn btn-primary position-relative btn-atc btn-buyit-now bg-dark" style="color:white;">BUY IT NOW</button>
+                                            <button type="submit" class="btn btn-primary position-relative btn-atc btn-buyit-now bg-dark" style="color:white;">Add to Wishlist
+                                                                                        <a href="@Url.Action("ProductDetails","PlantNest", new { id = Model.pro_id } )" style="color:black;text-decoration:none;"> </a>
+                                            </button>
                                         </div>
                                     </form>
 
