@@ -10,7 +10,7 @@ namespace PlantNest.Controllers
 {
     public class PlantNestController : Controller
     {
-        PlantNestEntities2 db = new PlantNestEntities2();
+        PlantNestEntities3 db = new PlantNestEntities3();
 
         public ActionResult Index()
         {
@@ -65,7 +65,49 @@ namespace PlantNest.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(tbl_user us, HttpPostedFileBase imgfile)
+        public ActionResult Register(tbl_user us)
+        {
+            
+                tbl_user u = new tbl_user();
+                u.u_name = us.u_name;
+                u.u_email = us.u_email;
+                u.u_password = us.u_password;
+                u.u_contact = us.u_contact;
+                db.tbl_user.Add(u);
+                db.SaveChanges();
+                return RedirectToAction("Login");
+        }
+
+
+
+        public ActionResult Profile(int? id)
+        {
+            int userId = Convert.ToInt32(Session["u_id"]);
+
+
+            if (id == null)
+            {
+                tbl_user user = db.tbl_user.FirstOrDefault(u => u.u_id == userId);
+                return View(user);
+            }
+
+            return View("ProfileNotFound");
+        }
+
+        [HttpGet]
+        public ActionResult Edit_Profile(int id)
+        {
+            tbl_user user = db.tbl_user.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [HttpPost]
+
+        public ActionResult Save_Edit(tbl_user user, HttpPostedFileBase imgfile)
         {
             string path = uploadimage(imgfile);
             if (path.Equals(-1))
@@ -74,19 +116,18 @@ namespace PlantNest.Controllers
             }
             else
             {
-                tbl_user u = new tbl_user();
-                u.u_name = us.u_name;
-                u.u_email = us.u_email;
-                u.u_password = us.u_password;
-                u.u_image = path;
-                u.u_contact = us.u_contact;
-                db.tbl_user.Add(u);
+                tbl_user us = db.tbl_user.Find(user.u_id);
+                us.u_name = user.u_name;
+                if (imgfile != null)
+                {
+                    us.u_image = path;
+                }
                 db.SaveChanges();
-                return RedirectToAction("Login");
+                return RedirectToAction("Profile");
             }
-
-            return View();
+            return View(user);
         }
+
 
         public string uploadimage(HttpPostedFileBase file)
         {

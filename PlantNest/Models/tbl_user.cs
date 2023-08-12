@@ -24,8 +24,8 @@ namespace PlantNest.Models
         public string u_name { get; set; }
         public string u_email { get; set; }
         public string u_password { get; set; }
-        public string u_image { get; set; }
         public string u_contact { get; set; }
+        public string u_image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_invoice> tbl_invoice { get; set; }

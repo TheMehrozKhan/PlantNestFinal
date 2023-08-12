@@ -71,8 +71,8 @@
           <Property Name="u_name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="u_email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="u_password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="u_image" Type="varchar(max)" Nullable="false" />
           <Property Name="u_contact" Type="varchar(max)" Nullable="false" />
+          <Property Name="u_image" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK__tbl_categ__ad_id__5629CD9C">
           <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
@@ -332,8 +332,8 @@
           <Property Name="u_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="u_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="u_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="u_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="u_contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="u_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbl_invoice" Relationship="Self.FK__tbl_invoi__in_fk__59063A47" FromRole="tbl_user" ToRole="tbl_invoice" />
         </EntityType>
         <Association Name="FK__tbl_categ__ad_id__5629CD9C">
@@ -456,7 +456,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PlantNestEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PlantNestEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" />
           <EntitySet Name="tbl_category" EntityType="Self.tbl_category" />
           <EntitySet Name="tbl_invoice" EntityType="Self.tbl_invoice" />
@@ -509,7 +509,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PlantNestModelStoreContainer" CdmEntityContainer="PlantNestEntities2">
+        <EntityContainerMapping StorageEntityContainer="PlantNestModelStoreContainer" CdmEntityContainer="PlantNestEntities3">
           <EntitySetMapping Name="tbl_admin">
             <EntityTypeMapping TypeName="PlantNestModel.tbl_admin">
               <MappingFragment StoreEntitySet="tbl_admin">
@@ -580,8 +580,8 @@
                 <ScalarProperty Name="u_name" ColumnName="u_name" />
                 <ScalarProperty Name="u_email" ColumnName="u_email" />
                 <ScalarProperty Name="u_password" ColumnName="u_password" />
-                <ScalarProperty Name="u_image" ColumnName="u_image" />
                 <ScalarProperty Name="u_contact" ColumnName="u_contact" />
+                <ScalarProperty Name="u_image" ColumnName="u_image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

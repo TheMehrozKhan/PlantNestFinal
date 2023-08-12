@@ -81,7 +81,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="my-account.html" aria-label="My Account">
+                                            <a href="@Url.Action("Profile")" aria-label="My Account">
                                                 <i class="lastudioicon-single-01-2"></i>
                                             </a>
                                         </li>
@@ -152,7 +152,7 @@
                         @if (Session["u_id"] != null)
                         {
                             <li>
-                                <a href="@Url.Action("User_Profile")">My Account</a>
+                                <a href="@Url.Action("Profile")">My Account</a>
                             </li>
                         }
                         else

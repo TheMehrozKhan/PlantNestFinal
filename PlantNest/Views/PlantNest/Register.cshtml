@@ -91,13 +91,7 @@ document.getElementById('signupform').addEventListener('submit', function(event)
             title: 'Weak Password',
             text: 'Password must contain at least 8 Characters For Better Security.'
         });
-    } else if (!phonePattern.test(phone)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Invalid Phone Number',
-            text: 'Please enter a valid 10-digit phone number.'
-        });
-    } else {
+    }  else {
         Swal.fire({
             icon: 'success',
             title: 'Congrats!',
