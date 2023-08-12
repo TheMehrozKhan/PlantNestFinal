@@ -11,15 +11,16 @@
     <body>
         <main>
             <div class="mt-5">
-                <div class="container" style="margin-top:250px;margin-bottom:250px;">
+                <div class="container" style="margin-top:310px;margin-bottom:250px;">
                     <div class="row">
                         <div class="col-lg-7 col-md-12 col-12">
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th></th>
-                                        <th class="text-center d-none d-md-table-cell">Quantity</th>
+                                        <th>Product Image</th>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Actions</th>
                                         <th class="text-end">Price</th>
                                     </tr>
                                 </thead>
@@ -41,12 +42,11 @@
                                                     <h6><a href="#">@item.pro_name</a></h6>
                                                 </td>
                                                 <td>
-                                                    <div class="input-group" style="border-color:none;">
-                                                        <button class="btn" data-id="@item.pro_id">-</button>
-                                                        <input class="form-control" type="number" name="qty" value="@item.o_qty" min="0">
-                                                        <button class="btn" data-id="@item.pro_id">+</button>
-                                                    </div>
-                                                    <a href="@Url.Action("Remove_From_Cart", "PlantNest", new { id = item.pro_id })">Remove</a>
+                                                        @item.pro_id
+                                                </td>
+                                                <td>
+                                                                                                        <a href="@Url.Action("Remove_From_Cart", "PlantNest", new { id = item.pro_id })">Remove</a>
+
                                                 </td>
                                                 <td class="text-end">
                                                     <div>@item.o_bill</div>

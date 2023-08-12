@@ -22,5 +22,6 @@ namespace PlantNest.Models
         public int ad_id { get; set; }
         public string ad_name { get; set; }
         public List<string> ImageUrls { get; set; }
+
     }
 }
