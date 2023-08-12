@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Plantfy - Plants Store Website Template</title>
+   
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="Plantfy - Plants Store Website Template" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -167,6 +167,9 @@
                         }
                         <li class="position-static">
                             <a href="@Url.Action("CategoryPage","PlantNest")">Shop Now</a>
+                        </li>
+                        <li class="position-static">
+                            <a href="@Url.Action("Login","Admin")">Admin Login</a>
                         </li>
                     </ul>
                 </div>
@@ -394,11 +397,9 @@
             <!-- Off Canvas Sidebar Menu Start -->
             <div class="offcanvas-sidebar__menu">
                 <ul class="offcanvas-menu-list">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="blog.html">News & Events</a></li>
-                    <li><a href="faqs.html">FAQs</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="@Url.Action("About")">About Us</a></li>
+                    <li><a href="@Url.Action("FAQs")">FAQs</a></li>
+                    <li><a href="@Url.Action("Contact")">Contact Us</a></li>
                 </ul>
             </div>
             <!-- Off Canvas Sidebar Menu End -->
@@ -412,17 +413,7 @@
             </div>
             <!-- Off Canvas Sidebar Banner End -->
             <!-- Off Canvas Sidebar Info Start -->
-            <div class="offcanvas-sidebar__info">
-                <ul class="offcanvas-info-list">
-                    <li><a href="tel:+61225315600">(+612) 2531 5600</a></li>
-                    <li><a href="mailto:info@exmple.com">info@exmple.com</a></li>
-                    <li>
-                        <span>
-                            PO Box 1622 Colins Street West Victoria 8077 Australia
-                        </span>
-                    </li>
-                </ul>
-            </div>
+           
             <!-- Off Canvas Sidebar Info End -->
             <!-- Off Canvas Sidebar Social Start -->
             <div class="offcanvas-sidebar__social">
@@ -471,37 +462,31 @@
             <nav class="navbar-mobile-menu">
                 <ul class="mobile-menu-items">
                     <li>
-                        <a href="#">
-                            Demos
-                            <span class="menu-expand" aria-label="down-arrow">
-                                <i class="lastudioicon-down-arrow"></i>
-                            </span>
+                        <a class="active" href="@Url.Action("Index")">
+                            Home
                         </a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Plant 01</a></li>
-                            <li><a href="index-2.html">Plant 02</a></li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="#">
-                            Pages
-                            <span class="menu-expand" aria-label="down-arrow">
-                                <i class="lastudioicon-down-arrow"></i>
-                            </span>
-                        </a>
+                        <a href="#">Who We Are  <i class="lastudioicon-down-arrow" aria-hidden="true" class="menu-expand"></i></a>
                         <ul class="sub-menu">
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="coming-soon.html">Coming Soon</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="faqs.html">FAQ's</a></li>
-                            <li><a href="term-of-use.html">term of use</a></li>
-                            <li><a href="404.html">404 Page</a></li>
-                            <li>
-                                <a href="login-register.html">Login & Register</a>
-                            </li>
+                            <li><a href="@Url.Action("About")">About us</a></li>
+                            <li><a href="@Url.Action("Contact")">Contact Us</a></li>
+                            <li><a href="@Url.Action("FAQs")">FAQ's</a></li>
+                            <li><a href="@Url.Action("Term_of_Use")">Term of use</a></li>
                         </ul>
                     </li>
+                    @if (Session["u_id"] != null)
+                    {
+                        <li>
+                            <a href="@Url.Action("Profile")">My Account</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@Url.Action("Login")">Login & Register</a>
+                        </li>
+                    }
                     <li>
                         <a href="#">
                             Shop
@@ -541,7 +526,7 @@
                                 <h5 class="mega-menu-title">Shop Pages</h5>
                                 <ul class="">
                                     <li>
-                                        <a href="my-account.html">My Account</a>
+                                        <a href="@Url.Action("Profile")">My Account</a>
                                     </li>
                                     <li><a href="cart.html">Cart</a></li>
                                     <li>

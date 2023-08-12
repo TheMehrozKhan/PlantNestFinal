@@ -96,6 +96,22 @@ namespace PlantNest.Controllers
         }
 
         [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            tbl_category ca = db.tbl_category.Where(x => x.cat_id == id).SingleOrDefault();
+            return View(ca);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int? id, tbl_category cat)
+        {
+            tbl_category ca = db.tbl_category.Where(x => x.cat_id == id).SingleOrDefault();
+            db.tbl_category.Remove(ca);
+            db.SaveChanges();
+            return RedirectToAction("View_Category");
+        }
+
+        [HttpGet]
         public ActionResult Edit_Category(int id)
         {
             tbl_category category = db.tbl_category.Find(id);

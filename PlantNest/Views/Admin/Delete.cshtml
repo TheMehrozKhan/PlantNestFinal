@@ -1,0 +1,49 @@
+﻿﻿@model PlantNest.Models.tbl_category
+<head>
+    <title>Delete Categories </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+</head>
+<style>
+
+
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .delete-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: center;
+        padding-left: 5px;
+        width: 100%;
+    }
+
+    #thebtn {
+        font-size: 24px;
+        width: 100%;
+        height: 60px;
+        margin-left: 5px;
+    }
+    #thebtn:hover{
+        border-color:white;
+    }
+</style>
+<div style="display:flex;justify-content:center;align-items:center;height:100vh;">
+    @using (Html.BeginForm("Delete", "Admin", FormMethod.Post, new { @class = "delete-form" }))
+    {
+        <div class="form-wrapper" style="margin-top: 60px;">
+            <form>
+                <h3>Do You Want to Delete This Category 🤔?</h3>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.cat_name, new { @class = "form-control", @readonly = "readonly", })
+                    <input type="submit" style="margin-top: 5px; background-color: #60c38d; color:white; border-radius:8px;"  value="YES" class="btn btn-danger" id="thebtn" />
+                </div>
+            </form>
+        </div>}
+</div>
