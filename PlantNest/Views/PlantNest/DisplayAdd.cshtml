@@ -55,7 +55,7 @@
                                                     <a href="#">@categoryName</a>
                                                 </div>
                                                 <h3 class="single-product__info--title">
-                                                    <a href="@Url.Action("ProductDetails", new { id = item.pro_id })">@item.pro_name</a>
+                                                    <a href="#">@Html.ActionLink(item.pro_name, "ProductDetails", new { id = item.pro_id }, new { style = "text-decoration:none;" })</a>
                                                 </h3>
                                                 <div class="single-product__info--price">
                                                     <ins>@item.pro_price/PKR</ins>

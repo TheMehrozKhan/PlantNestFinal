@@ -1,0 +1,76 @@
+﻿@model PlantNest.Models.ProductDetailsViewModel
+@{
+    ViewBag.Title = "Product Details";
+}
+<body>
+    <main>
+        <div class="product-single-section section-padding-2">
+            <div class="container-fluid custom-container">
+                <div class="product-single-wrapper" style="margin-top:250px;">
+                    <div class="product-single-col-1">
+                        <div class="product-single-image">
+                            <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    @for (int i = 0; i < Model.ImageUrls.Count; i++)
+                                    {
+                                        <div class="carousel-item @(i == 0 ? "active" : "")">
+                                            <img src="@Url.Content(Model.ImageUrls[i])" class="d-block w-100" alt="Product Image">
+                                        </div>
+                                    }
+                                </div>
+                                <a class="carousel-control-prev" href="#productImageCarousel" role="button" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#productImageCarousel" role="button" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-single-col-2">
+                        <div class="product-single-content">
+                            <h2 class="product-single-content__title">
+                                @Model.pro_name
+                            </h2>
+                            <div class="product-single-content__price-stock">
+                                <div class="product-single-content__price">
+                                    <ins>@Model.pro_price /PKR</ins>
+                                </div>
+                                <!-- Other details here -->
+                            </div>
+                            <div class="product-single-content__short-description">
+                                <p>
+                                    @Model.pro_desc
+                                </p>
+                            </div>
+                            <div class="product-single-content__add-to-cart-wrapper">
+                                <div class="product-single-content__quantity-add-to-cart">
+                                    <div class="product-single-content__quantity product-quantity">
+                                        <button type="button" class="decrease">
+                                            <i class="lastudioicon-i-delete-2"></i>
+                                        </button>
+                                        <input class="quantity-input" type="text" value="1" />
+                                        <button type="button" class="increase">
+                                            <i class="lastudioicon-i-add-2"></i>
+                                        </button>
+                                    </div>
+                                    <form class="product-form" style="width:100%;">
+                                        <div class="product-form-buttons d-flex align-items-center justify-content-between mt-4">
+                                            <button type="submit" class="btn btn-primary position-relative btn-atc btn-add-to-cart loader bg-dark" style="color:white;">ADD TO CART</button>
+                                        </div>
+                                        <div class="buy-it-now-btn mt-2">
+                                            <button type="submit" class="btn btn-primary position-relative btn-atc btn-buyit-now bg-dark" style="color:white;">BUY IT NOW</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

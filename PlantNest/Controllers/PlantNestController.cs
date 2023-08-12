@@ -1,6 +1,7 @@
 ﻿using PagedList;
 using PlantNest.Models;
 using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,7 +18,6 @@ namespace PlantNest.Controllers
         {
             List<ProductViewModel> products = new List<ProductViewModel>();
 
-            // Fetch products from the database
             var productList = db.tbl_product.ToList();
 
             foreach (var product in productList)
@@ -167,8 +167,6 @@ namespace PlantNest.Controllers
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
 
-
-
             var categoryName = string.Empty;
             if (id != null)
             {
@@ -185,6 +183,204 @@ namespace PlantNest.Controllers
 
             ViewBag.CategoryName = categoryName;
             return View(pro);
+        }
+
+        public ActionResult ProductDetails(int? id)
+        {
+            ProductDetailsViewModel pr = new ProductDetailsViewModel();
+
+            tbl_product p = db.tbl_product.Where(x => x.pro_id == id).SingleOrDefault();
+            pr.pro_id = p.pro_id;
+            pr.pro_name = p.pro_name;
+            pr.pro_price = p.pro_price;
+            pr.pro_desc = p.pro_desc;
+
+            tbl_category cat = db.tbl_category.Where(x => x.cat_id == p.cat_id_fk).SingleOrDefault();
+            pr.cat_name = cat.cat_name;
+
+            tbl_admin us = db.tbl_admin.Where(x => x.ad_id == p.ad_id_fk).SingleOrDefault();
+            pr.u_id = us.ad_id;
+            pr.u_name = us.ad_name;
+
+            pr.ImageUrls = p.pro_image.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            return View(pr);
+        }
+
+        public ActionResult Add_To_Cart(int? id)
+        {
+            // Check if the user is logged in
+            if (Session["u_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            tbl_product p = db.tbl_product.Where(x => x.pro_id == id).SingleOrDefault();
+            if (p == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            List<Cart> cartItems = Session["cart"] as List<Cart>;
+
+            if (cartItems == null)
+            {
+                cartItems = new List<Cart>();
+            }
+
+            Cart existingItem = cartItems.FirstOrDefault(item => item.pro_id == id);
+
+            if (existingItem != null)
+            {
+                existingItem.o_qty++;
+                existingItem.o_bill = existingItem.pro_price * existingItem.o_qty;
+            }
+            else
+            {
+                Cart ca = new Cart();
+                ca.pro_id = p.pro_id;
+                ca.pro_name = p.pro_name;
+                ca.pro_price = p.pro_price;
+                ca.o_qty = 1;
+                ca.o_bill = ca.pro_price * ca.o_qty;
+                ca.pro_image = p.pro_image;
+
+                cartItems.Add(ca);
+            }
+
+            int cartCount = cartItems.Count;
+            ViewBag.CartCount = cartCount;
+
+            Session["cart"] = cartItems;
+
+            return Redirect(Request.UrlReferrer.ToString());
+        }
+
+        public ActionResult Remove_From_Cart(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Add_To_Cart");
+            }
+
+            List<Cart> cartItems = Session["cart"] as List<Cart>;
+
+            if (cartItems != null)
+            {
+
+                Cart itemToRemove = cartItems.FirstOrDefault(item => item.pro_id == id);
+
+                // Remove the item from the cart
+                if (itemToRemove != null)
+                {
+                    cartItems.Remove(itemToRemove);
+                }
+
+                int cartCount = cartItems.Count;
+                ViewBag.CartCount = cartCount;
+
+
+                Session["cart"] = cartItems;
+            }
+
+            return RedirectToAction("View_Cart");
+        }
+
+        public ActionResult View_Cart()
+        {
+            if (Session["u_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            List<Cart> cartItems = Session["cart"] as List<Cart>;
+
+            if (cartItems == null)
+            {
+                cartItems = new List<Cart>();
+            }
+
+            ViewBag.CartCount = cartItems.Count;
+
+            return View(cartItems);
+        }
+
+        public ActionResult Checkout()
+        {
+            if (Session["u_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            List<Cart> cartItems = Session["cart"] as List<Cart>;
+
+            if (cartItems == null || cartItems.Count == 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            int totalBill = Convert.ToInt32(cartItems.Sum(item => item.o_bill));
+
+            ViewBag.TotalBill = totalBill;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PlaceOrder(CheckoutViewModel model)
+        {
+            if (Session["u_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            int userId = Convert.ToInt32(Session["u_id"]);
+
+            List<Cart> cartItems = Session["cart"] as List<Cart>;
+
+            if (cartItems == null || cartItems.Count == 0)
+            {
+                return RedirectToAction("View_Cart");
+            }
+
+            int totalBill = Convert.ToInt32(cartItems.Sum(item => item.o_bill));
+
+            tbl_invoice invoice = new tbl_invoice();
+            invoice.in_fk_user = userId;
+            invoice.in_date = DateTime.Now;
+            invoice.in_totalbill = totalBill;
+
+            db.tbl_invoice.Add(invoice);
+            db.SaveChanges();
+
+            int invoiceId = invoice.in_id;
+
+            foreach (var item in cartItems)
+            {
+                tbl_order order = new tbl_order();
+                order.o_fk_pro = item.pro_id;
+                order.o_date = DateTime.Now;
+                order.o_totalbill = totalBill;
+                order.o_fk_invoice = invoiceId;
+                order.o_qty = item.o_qty;
+                order.o_unitprice = item.pro_price;
+                order.o_bill = item.o_bill;
+
+                order.u_credit_card_number = model.CreditCardNumber;
+                order.u_ccv = model.CCV;
+                order.u_expiry_date = DateTime.ParseExact(model.ExpiryDate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                order.u_pin = model.PIN;
+
+                db.tbl_order.Add(order);
+            }
+
+            db.SaveChanges();
+            Session["cart"] = null;
+            return RedirectToAction("Index", "User");
         }
 
         public ActionResult Search(int? id, int? page, string search)
