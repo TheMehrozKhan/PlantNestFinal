@@ -1,0 +1,47 @@
+﻿@model PagedList.IPagedList<PlantNest.Models.tbl_category>
+@{
+    var categoryList = new SelectList(Model, "cat_id", "cat_name");
+}
+<body>
+    <main style="margin-bottom:50px;">
+        <div class="product-section section-padding-1">
+            <div class="container-fluid custom-container">
+                <div class="product-wrapper">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="all">
+                            <div class="row">
+                                @using (Html.BeginForm("DisplayAdd", "User", FormMethod.Post))
+                                {
+                                    <div class="text-center">
+                                        <div class="dropdown" style="display: inline-block; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; border-radius: 8px;">
+                                            @Html.DropDownList("id", categoryList, "Select a category", new { @class = "form-control", @style = "border-color:white;height:40px;" })
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" style="background-color:#F76B6A;border:none;border-radius:8px;color:white;">Go</button>
+                                    </div>
+                                }
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-md-6 col-lg-4 col-xl-3" data-aos="fade-up" data-aos-duration="700">
+                                            <div class="card shadow-sm h-100">
+                                                <a href="@Url.Action("DisplayAdd", "PlantNest", new { id = item.cat_id })">
+                                                    <img class="card-img-top" src="@Url.Content(item.cat_image)" alt="product-img">
+                                                </a>
+                                                <div class="card-body">
+                                                    <h5 class="card-title text-center">
+                                                        <a href="@Url.Action("DisplayAdd", "PlantNest", new { id = item.cat_id })" style="text-decoration:none;color:#001629;">@item.cat_name</a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

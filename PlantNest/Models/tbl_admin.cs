@@ -20,7 +20,11 @@ namespace PlantNest.Models
             this.tbl_category = new HashSet<tbl_category>();
             this.tbl_category1 = new HashSet<tbl_category>();
             this.tbl_category2 = new HashSet<tbl_category>();
+            this.tbl_category3 = new HashSet<tbl_category>();
+            this.tbl_category4 = new HashSet<tbl_category>();
+            this.tbl_category5 = new HashSet<tbl_category>();
             this.tbl_product = new HashSet<tbl_product>();
+            this.tbl_product1 = new HashSet<tbl_product>();
         }
     
         public int ad_id { get; set; }
@@ -35,6 +39,14 @@ namespace PlantNest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_category> tbl_category2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_category> tbl_category3 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_category> tbl_category4 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_category> tbl_category5 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_product> tbl_product { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_product> tbl_product1 { get; set; }
     }
 }

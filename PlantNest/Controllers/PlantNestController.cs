@@ -11,7 +11,7 @@ namespace PlantNest.Controllers
 {
     public class PlantNestController : Controller
     {
-        PlantNestEntities db = new PlantNestEntities();
+        PlantNestEntities1 db = new PlantNestEntities1();
 
         public ActionResult Index()
         {
@@ -145,6 +145,46 @@ namespace PlantNest.Controllers
                 return RedirectToAction("Profile");
             }
             return View(user);
+        }
+
+        public ActionResult CategoryPage(int? page)
+        {
+            int pageSize = 8;
+            int pageIndex = 1;
+
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+
+            var list = db.tbl_category.Where(x => x.cat_status == 1).OrderByDescending(x => x.cat_id).ToList();
+            IPagedList<tbl_category> cateList = list.ToPagedList(pageIndex, pageSize);
+
+            return View(cateList);
+        }
+
+
+        public ActionResult DisplayAdd(int? id, int? page, string search)
+        {
+            int pageSize = 6;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+
+
+
+            var categoryName = string.Empty;
+            if (id != null)
+            {
+                var category = db.tbl_category.SingleOrDefault(c => c.cat_id == id);
+                if (category != null)
+                {
+                    categoryName = category.cat_name;
+                }
+            }
+
+            var list = db.tbl_product.Where(x => x.cat_id_fk == id).OrderByDescending(x => x.pro_id).ToList();
+            IPagedList<tbl_product> pro = list.ToPagedList(pageIndex, pageSize);
+
+
+            ViewBag.CategoryName = categoryName;
+            return View(pro);
         }
 
         public ActionResult Search(int? id, int? page, string search)

@@ -18,6 +18,7 @@ namespace PlantNest.Models
         public tbl_product()
         {
             this.tbl_order = new HashSet<tbl_order>();
+            this.tbl_order1 = new HashSet<tbl_order>();
         }
     
         public int pro_id { get; set; }
@@ -30,10 +31,16 @@ namespace PlantNest.Models
         public Nullable<int> ad_id_fk { get; set; }
     
         public virtual tbl_admin tbl_admin { get; set; }
+        public virtual tbl_admin tbl_admin1 { get; set; }
         public virtual tbl_category tbl_category { get; set; }
         public virtual tbl_category tbl_category1 { get; set; }
         public virtual tbl_category tbl_category2 { get; set; }
+        public virtual tbl_category tbl_category3 { get; set; }
+        public virtual tbl_category tbl_category4 { get; set; }
+        public virtual tbl_category tbl_category5 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_order> tbl_order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_order> tbl_order1 { get; set; }
     }
 }
