@@ -12,7 +12,7 @@
                             <div class="row">
                                 @using (Html.BeginForm("DisplayAdd", "User", FormMethod.Post))
                                 {
-                                    <div class="text-center">
+                                    <div class="text-center" style="margin-top:50px;margin-bottom:50px;">
                                         <div class="dropdown" style="display: inline-block; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; border-radius: 8px;">
                                             @Html.DropDownList("id", categoryList, "Select a category", new { @class = "form-control", @style = "border-color:white;height:40px;" })
                                         </div>
@@ -23,8 +23,8 @@
                                 {
                                     foreach (var item in Model)
                                     {
-                                        <div class="col-md-6 col-lg-4 col-xl-3" data-aos="fade-up" data-aos-duration="700">
-                                            <div class="card shadow-sm h-100">
+                                        <div class="col-md-6 col-lg-4 col-xl-3" data-aos="fade-up" data-aos-duration="700" style="box-shadow: rgba(100, 100, 111, 0.25) 0px 7px 29px 0px;border-radius:12px;margin-bottom:150px;margin-left:50px;">
+                                            <div class="card shadow-sm h-100" style="border:none;">
                                                 <a href="@Url.Action("DisplayAdd", "PlantNest", new { id = item.cat_id })">
                                                     <img class="card-img-top" src="@Url.Content(item.cat_image)" alt="product-img">
                                                 </a>

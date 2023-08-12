@@ -109,21 +109,15 @@
                                 </div>
                             </a>
                         </div>
-                        <!-- Single Banner End -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Banner End -->
-        <!-- New Arrival Start -->
         <div class="product-section section-padding-1">
             <div class="container-fluid custom-container">
-                <!-- Section Title Start -->
                 <div class="section-title text-center js-scroll ShortFadeInUp">
                     <h3 class="section-title__title">New Arrival</h3>
                 </div>
-                <!-- Section Title End -->
-                <!-- Product Tab Menu Start -->
                 <div class="product-tab-menu js-scroll ShortFadeInUp">
                     <ul class="nav justify-content-center" role="tablist">
                         <li role="presentation">
@@ -148,13 +142,10 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Product Tab Menu End -->
-                <!-- Product Wrapper Start -->
                 <div class="product-wrapper">
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="all">
                             <div class="row">
-                                <!-- Single product Start -->
                                 @foreach (var product in Model)
                                 {
                                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -178,12 +169,6 @@
                                                     <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
                                                         <i class="lastudioicon-shopping-cart-3"></i>
                                                     </a>
-                                                    <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                        <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                    </a>
-                                                    <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                        <i class="lastudioicon-search-zoom-in"></i>
-                                                    </button>
                                                 </div>
                                             </div>
                                             <div class="single-product__info">
@@ -194,24 +179,17 @@
                                                     <a href="product-single.html">@product.pro_name</a>
                                                 </h3>
                                                 <div class="single-product__info--price">
-                                                    <ins>@product.pro_price.ToString("C")</ins>
+                                                    <p>@product.pro_price.ToString("0.00") /PKR</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 }
-
-
-
-
-
-                                <!-- Single product End -->
                             </div>
                         </div>
                         <div class="tab-pane fade" id="offices">
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
                                     <div class="single-product js-scroll ShortFadeInUp scrolled">
                                         <div class="single-product__thumbnail">
                                             <div class="single-product__thumbnail--meta-3">

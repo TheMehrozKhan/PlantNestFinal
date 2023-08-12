@@ -7,14 +7,12 @@
 <body>
     <main>
         <div class="container mt-100">
-            <div class="row">
-                <div class="col-lg-9 col-md-12 col-12">
-                    <div class="d-flex justify-content-between flex-wrap">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-12 col-12" style="margin-top: 60px; margin-bottom: 60px;">
+                    <div class="text-center mb-4">
                         @if (categoryName != null)
                         {
-                            <div class="d-flex align-items-end">
-                                <h2 class="mb-0">Our @categoryName Products</h2>
-                            </div>
+                            <h2 class="mb-0">Our @categoryName Products</h2>
                         }
                         else
                         {
@@ -29,20 +27,39 @@
                                 var imagePaths = item.pro_image.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                                 if (imagePaths.Length > 0)
                                 {
-                                    <div class="col-lg-4 col-md-6 col-12 mb-4">
-                                        <div class="card">
-                                            <a href="@Url.Action("ProductDetails", new { id = item.pro_id })">
-                                                <img class="card-img-top" src="@Url.Content(imagePaths[0])" alt="product-img">
-                                            </a>
-                                            <div class="card-body">
-                                                <h5 class="card-title">
-                                                    <a href="@Url.Action("ProductDetails", new { id = item.pro_id })">@item.pro_name</a>
-                                                </h5>
-                                                <p class="card-text">@item.pro_desc</p>
+                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                                        <div class="single-product js-scroll ShortFadeInUp scrolled">
+                                            <div class="single-product__thumbnail">
+                                                <div class="single-product__thumbnail--meta-3">
+                                                    <a href="@Url.Action("ProductDetails", new { id = item.pro_id })" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
+                                                        <i class="lastudioicon-heart-2"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="single-product__thumbnail--badge onsale">
+                                                    Sale
+                                                </div>
+                                                <div class="single-product__thumbnail--holder">
+                                                    <a href="@Url.Action("ProductDetails", new { id = item.pro_id })">
+                                                        <img src="@Url.Content(imagePaths[0])" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
+                                                        <img class="product-hover" src="@Url.Content(imagePaths[1])" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
+                                                    </a>
+                                                </div>
+                                                <div class="single-product__thumbnail--meta-2">
+                                                    <a href="@Url.Action("Add_To_Cart", "User", new { id = item.pro_id })" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
+                                                        <i class="lastudioicon-shopping-cart-3"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="card-footer d-flex justify-content-between align-items-center">
-                                                <span>@item.pro_price/PKR</span>
-                                                <a href="@Url.Action("ProductDetails", new { id = item.pro_id })" class="btn btn-primary">View Details</a>
+                                            <div class="single-product__info">
+                                                <div class="single-product__info--tags">
+                                                    <a href="#">@categoryName</a>
+                                                </div>
+                                                <h3 class="single-product__info--title">
+                                                    <a href="@Url.Action("ProductDetails", new { id = item.pro_id })">@item.pro_name</a>
+                                                </h3>
+                                                <div class="single-product__info--price">
+                                                    <ins>@item.pro_price/PKR</ins>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
