@@ -46,7 +46,7 @@
                     <div class="col-md-4">
                         <div class="card mx-auto" style="margin-bottom: 20px;">
                             <div class="card-body">
-                                <img src="@Url.Content(item.cat_image)" style="width: 100%; border-radius: 8px;" class="theimg" />
+                                <img src="@Url.Content(item.cat_image)" style="width: 100%; height:200px; border-radius: 8px;" class="theimg" />
                                 <h5 class="card-title" style="text-align: center; margin-top: 15px;font-weight:700;margin-bottom:15px;">@item.cat_name</h5>
                                 <div style="text-align: center;">
                                     <a href="@Url.Action("Edit_Category", "Admin", new { id = item.cat_id })" class="btn btn-primary" style="border-radius:5px;">Edit</a>
