@@ -13,6 +13,8 @@ namespace PlantNest.Models
         public string pro_name { get; set; }
         public Nullable<int> pro_price { get; set; }
         public string pro_image { get; set; }
+        public List<string> pro_images { get; set; }
+
         public string pro_desc { get; set; }
         public int u_id { get; set; }
         public string u_name { get; set; }

@@ -155,356 +155,55 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="all">
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
-                                    <div class="single-product js-scroll ShortFadeInUp scrolled">
-                                        <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                                    <i class="lastudioicon-heart-2"></i>
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--badge onsale">
-                                                Sale
-                                            </div>
-                                            <div class="single-product__thumbnail--holder">
-                                                <a href="product-single.html">
-                                                    <img src="/Template/assets/images/products/product-01.png" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
-                                                    <img class="product-hover" src="/Template/assets/images/products/product-10.png" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                                    <i class="lastudioicon-shopping-cart-3"></i>
-                                                </a>
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                    <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                </a>
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
-                                            </div>
+                                <!-- Single product Start -->
+                                @foreach (var product in Model)
+                                {
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="single-product js-scroll ShortFadeInUp scrolled">
+                                    <div class="single-product__thumbnail">
+                                        <div class="single-product__thumbnail--meta-3">
+                                            <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
+                                                <i class="lastudioicon-heart-2"></i>
+                                            </a>
                                         </div>
-                                        <div class="single-product__info">
-                                            <div class="single-product__info--tags">
-                                                <a href="#">Plant</a>
-                                            </div>
-                                            <h3 class="single-product__info--title">
-                                                <a href="product-single.html">
-                                                    Viksberg planter
-                                                </a>
-                                            </h3>
-                                            <div class="single-product__info--price">
-                                                <del>$39.99</del>
-                                                <ins>$29.99</ins>
-                                            </div>
+                                        <div class="single-product__thumbnail--badge onsale">
+                                            Sale
+                                        </div>
+                                        <div class="single-product__thumbnail--holder">
+                                            <a href="product-single.html">
+                                                <!-- Display the first image -->
+                                                <img src="@Url.Content(product.pro_images[0])" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
+                                                <!-- Display the second image on hover -->
+                                                <img class="product-hover" src="@Url.Content(product.pro_images[1])" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
+                                            </a>
+                                        </div>
+                                        <div class="single-product__thumbnail--meta-2">
+                                            <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
+                                                <i class="lastudioicon-shopping-cart-3"></i>
+                                            </a>
+                                            <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
+                                                <i class="lastudioicon-ic_compare_arrows_24px"></i>
+                                            </a>
+                                            <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
+                                                <i class="lastudioicon-search-zoom-in"></i>
+                                            </button>
                                         </div>
                                     </div>
-                                    <!-- Single product End -->
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
-                                    <div class="single-product js-scroll ShortFadeInUp scrolled">
-                                        <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                                    <i class="lastudioicon-heart-2"></i>
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--holder">
-                                                <a href="product-single.html">
-                                                    <img src="/Template/assets/images/products/product-02.png" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
-                                                    <img class="product-hover" src="/Template/assets/images/products/product-11.png" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                                    <i class="lastudioicon-shopping-cart-3"></i>
-                                                </a>
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                    <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                </a>
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
-                                            </div>
+                                    <div class="single-product__info">
+                                        <div class="single-product__info--tags">
+                                            <a href="#">Plant</a>
                                         </div>
-                                        <div class="single-product__info">
-                                            <div class="single-product__info--tags">
-                                                <a href="#">Plant</a>
-                                            </div>
-                                            <h3 class="single-product__info--title">
-                                                <a href="product-single.html">
-                                                    Vassunda planter
-                                                </a>
-                                            </h3>
-                                            <div class="single-product__info--price">
-                                                <ins>$39.99</ins>
-                                            </div>
+                                        <h3 class="single-product__info--title">
+                                            <a href="product-single.html">@product.pro_name</a>
+                                        </h3>
+                                        <div class="single-product__info--price">
+                                            <ins>@product.pro_price.ToString("C")</ins>
                                         </div>
                                     </div>
-                                    <!-- Single product End -->
                                 </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
-                                    <div class="single-product js-scroll ShortFadeInUp scrolled">
-                                        <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                                    <i class="lastudioicon-heart-2"></i>
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--holder">
-                                                <a href="product-single.html">
-                                                    <img src="/Template/assets/images/products/product-03.png" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                                    <i class="lastudioicon-shopping-cart-3"></i>
-                                                </a>
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                    <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                </a>
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="single-product__info">
-                                            <div class="single-product__info--tags">
-                                                <a href="#">Plant</a>
-                                            </div>
-                                            <h3 class="single-product__info--title">
-                                                <a href="product-single.html">
-                                                    Plant seeds
-                                                </a>
-                                            </h3>
-                                            <div class="single-product__info--price">
-                                                <ins>$29.99</ins>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single product End -->
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
-                                    <div class="single-product js-scroll ShortFadeInUp scrolled">
-                                        <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                                    <i class="lastudioicon-heart-2"></i>
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--holder">
-                                                <a href="product-single.html">
-                                                    <img src="/Template/assets/images/products/product-04.png" alt="Product" width="344" height="370" loading="lazy" loading="lazy" />
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                                    <i class="lastudioicon-shopping-cart-3"></i>
-                                                </a>
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                    <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                </a>
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="single-product__info">
-                                            <div class="single-product__info--tags">
-                                                <a href="#">Plant</a>
-                                            </div>
-                                            <h3 class="single-product__info--title">
-                                                <a href="product-single.html">
-                                                    Parodia chrysacanthion
-                                                </a>
-                                            </h3>
-                                            <div class="single-product__info--price">
-                                                <ins>$39.99</ins>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single product End -->
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
-                                    <div class="single-product js-scroll ShortFadeInUp scrolled">
-                                        <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                                    <i class="lastudioicon-heart-2"></i>
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--badge onsale">
-                                                Sale
-                                            </div>
-                                            <div class="single-product__thumbnail--holder">
-                                                <a href="product-single.html">
-                                                    <img src="/Template/assets/images/products/product-08.png" alt="Product" width="344" height="370" loading="lazy" />
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                                    <i class="lastudioicon-shopping-cart-3"></i>
-                                                </a>
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                    <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                </a>
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="single-product__info">
-                                            <div class="single-product__info--tags">
-                                                <a href="#">Plant</a>
-                                            </div>
-                                            <h3 class="single-product__info--title">
-                                                <a href="product-single.html">
-                                                    Syngonium pink spot
-                                                </a>
-                                            </h3>
-                                            <div class="single-product__info--price">
-                                                <del>$39.99</del>
-                                                <ins>$29.99</ins>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single product End -->
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
-                                    <div class="single-product js-scroll ShortFadeInUp scrolled">
-                                        <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                                    <i class="lastudioicon-heart-2"></i>
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--holder">
-                                                <a href="product-single.html">
-                                                    <img src="/Template/assets/images/products/product-07.png" alt="Product" width="344" height="370" loading="lazy" />
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                                    <i class="lastudioicon-shopping-cart-3"></i>
-                                                </a>
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                    <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                </a>
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="single-product__info">
-                                            <div class="single-product__info--tags">
-                                                <a href="#">Plant</a>
-                                            </div>
-                                            <h3 class="single-product__info--title">
-                                                <a href="product-single.html">
-                                                    Spathiphyllum domino
-                                                </a>
-                                            </h3>
-                                            <div class="single-product__info--price">
-                                                <ins>$29.99</ins>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single product End -->
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
-                                    <div class="single-product js-scroll ShortFadeInUp scrolled">
-                                        <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                                    <i class="lastudioicon-heart-2"></i>
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--badge onsale">
-                                                Sale
-                                            </div>
-                                            <div class="single-product__thumbnail--holder">
-                                                <a href="product-single.html">
-                                                    <img src="/Template/assets/images/products/product-06.png" alt="Product" width="344" height="370" loading="lazy" />
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                                    <i class="lastudioicon-shopping-cart-3"></i>
-                                                </a>
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                    <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                </a>
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="single-product__info">
-                                            <div class="single-product__info--tags">
-                                                <a href="#">Plant</a>
-                                            </div>
-                                            <h3 class="single-product__info--title">
-                                                <a href="product-single.html">
-                                                    Parodia chrysacanthion
-                                                </a>
-                                            </h3>
-                                            <div class="single-product__info--price">
-                                                <ins>$19.99</ins>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single product End -->
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6">
-                                    <!-- Single product Start -->
-                                    <div class="single-product js-scroll ShortFadeInUp scrolled">
-                                        <div class="single-product__thumbnail">
-                                            <div class="single-product__thumbnail--meta-3">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" data-bs-custom-class="p-meta-tooltip" aria-label="wishlist">
-                                                    <i class="lastudioicon-heart-2"></i>
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--holder">
-                                                <a href="product-single.html">
-                                                    <img src="/Template/assets/images/products/product-05.png" alt="Product" width="344" height="370" loading="lazy" />
-                                                    <img class="product-hover" src="/Template/assets/images/products/product-02.png" alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="single-product__thumbnail--meta-2">
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" data-bs-custom-class="p-meta-tooltip" aria-label="cart">
-                                                    <i class="lastudioicon-shopping-cart-3"></i>
-                                                </a>
-                                                <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to compare" data-bs-custom-class="p-meta-tooltip" aria-label="compare">
-                                                    <i class="lastudioicon-ic_compare_arrows_24px"></i>
-                                                </a>
-                                                <button data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Quickview" data-bs-custom-class="p-meta-tooltip" data-bs-toggle="modal" data-bs-target="#quickView" aria-label="zoom-in">
-                                                    <i class="lastudioicon-search-zoom-in"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="single-product__info">
-                                            <div class="single-product__info--tags">
-                                                <a href="#">Plant</a>
-                                            </div>
-                                            <h3 class="single-product__info--title">
-                                                <a href="product-single.html">
-                                                    Hoya burtoniae
-                                                </a>
-                                            </h3>
-                                            <div class="single-product__info--price">
-                                                <ins>$29.99</ins>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Single product End -->
-                                </div>
+                            </div>}
+
+                                <!-- Single product End -->
                             </div>
                         </div>
                         <div class="tab-pane fade" id="offices">

@@ -14,8 +14,28 @@ namespace PlantNest.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            List<ProductViewModel> products = new List<ProductViewModel>();
+
+            // Fetch products from the database
+            var productList = db.tbl_product.ToList();
+
+            foreach (var product in productList)
+            {
+                ProductViewModel viewModel = new ProductViewModel
+                {
+                    pro_id = product.pro_id,
+                    pro_name = product.pro_name,
+                    pro_price = product.pro_price,
+                    pro_desc = product.pro_desc,
+                    pro_images = product.pro_image.Split(',').ToList()
+                };
+
+                products.Add(viewModel);
+            }
+
+            return View(products);
         }
+
         public ActionResult About()
         {
             return View();
