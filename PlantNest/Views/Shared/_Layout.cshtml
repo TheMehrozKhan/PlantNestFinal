@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/Template/assets/css/nice-select2.css" />
     <link rel="stylesheet" href="/Template/assets/css/style.min.css" />
     <style>
-        body {
+        * {
             font-family: 'Poppins', sans-serif;
         }
     </style>
@@ -71,31 +71,56 @@
                     <div class="header-mid-col-1">
                         <div class="d-flex justify-content-end align-items-center">
                             <div class="header-mid-meta">
-                                <ul class="header-mid-meta__item justify-content-end">
-                                    <li class="d-none d-md-block">
-                                        <button data-bs-toggle="modal" data-bs-target="#SearchModal" aria-label="Search">
-                                            <i class="lastudioicon-zoom-1"></i>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <a href="my-account.html" aria-label="My Account">
-                                            <i class="lastudioicon-single-01-2"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="wishlist.html" aria-label="Wishlist">
-                                            <i class="lastudioicon-heart-2"></i>
-                                            <span class="badge">03</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
-                                            <i class="lastudioicon-bag-20"></i>
-                                            <span class="badge">03</span>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
+                                @if (Session["u_id"] != null)
+                                {
+                                    <ul class="header-mid-meta__item justify-content-end">
+                                        <li class="d-none d-md-block">
+                                            <button data-bs-toggle="modal" data-bs-target="#SearchModal" aria-label="Search">
+                                                <i class="lastudioicon-zoom-1"></i>
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <a href="my-account.html" aria-label="My Account">
+                                                <i class="lastudioicon-single-01-2"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="wishlist.html" aria-label="Wishlist">
+                                                <i class="lastudioicon-heart-2"></i>
+                                                <span class="badge">03</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" aria-label="Cart">
+                                                <i class="lastudioicon-bag-20"></i>
+                                                <span class="badge">03</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <style>
+                                        #thebtn {
+                                            background-color:black;
+                                        }
+                                            #thebtn:hover {
+                                                background-color: #60C38D;
+                                            }
+                                    </style>
+                                    <ul class="header-mid-meta__item justify-content-end">
+                                        <li>
+                                            <button class="single-form__btn btn" id="thebtn" style="border-radius: 8px; padding-left: 25px; padding-right: 25px; padding-top: 15px; padding-bottom: 15px;">
+                                               <a href="@Url.Action("Login","PlantNest")" style="color: white;">
+                                                   Login Now
+                                               </a>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                }
+                                </div>
                             <div class="header-mid-toggle text-end d-lg-none">
                                 <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Menu">
                                     <i class="lastudioicon-menu-4-2"></i>
@@ -124,9 +149,18 @@
                                 <li><a href="@Url.Action("Term_of_Use")">Term of use</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="@Url.Action("Login")">Login & Register </a>
-                        </li>
+                        @if (Session["u_id"] != null)
+                        {
+                            <li>
+                                <a href="@Url.Action("User_Profile")">My Account</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@Url.Action("Login")">Login & Register</a>
+                            </li>
+                        }
                         <li class="position-static">
                             <a href="#">Shop <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
                             <div class="mega-menu mega-menu--wrapper d-flex flex-wrap">
@@ -192,15 +226,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li>
-                            <a href="#">Blog <i class="lastudioicon-down-arrow" aria-hidden="true"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                <li><a href="blog.html">Blog No Sidebar</a></li>
-                                <li><a href="blog-single.html">Single Post</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -759,12 +784,8 @@
                 <div class="footer-main-wrapper">
                     <div class="footer-about text-center">
                         <a class="footer-about__logo" href="#">
-                            <img src="/Template/assets/images/logo-white.png" alt="Logo" width="190" height="35" loading="lazy" />
+                            <img src="/Template/assets/images/logo-white.png" alt="Logo" loading="lazy" style="width:250px;" />
                         </a>
-                        <p>
-                            Proin volutpat vitae libero at tincidunt. Maecenas
-                            sapien lectus,
-                        </p>
                     </div>
                     <div class="footer-newsletter">
                         <form action="#">
@@ -779,12 +800,12 @@
                             <h4 class="footer-title">Company links</h4>
 
                             <ul class="footer-link__list">
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="shop-fullwidth.html">Shop</a></li>
-                                <li><a href="term-of-use.html">Help Center</a></li>
+                                <li><a href="@Url.Action("About","PlantNest")">About us</a></li>
+                                <li><a href="@Url.Action("FAQs","PlantNest")">FAQ'S</a></li>
+                                <li><a href="@Url.Action("Contact","PlantNest")">Help Center</a></li>
                                 <li>
-                                    <a href="term-of-use.html">
-                                        Policy &amp; Privacy
+                                    <a href="@Url.Action("Term_of_Use","PlantNest")">
+                                        Terms & Conditions
                                     </a>
                                 </li>
                             </ul>
@@ -807,17 +828,18 @@
                             <ul class="footer-link__list">
                                 <li>
                                     <span>
-                                        4517 Washington Ave. Manchester, Kentucky
-                                        39495
+                                        Pakistan, Karachi
                                     </span>
                                 </li>
                                 <li>
                                     <a href="mailto:info@example.com">
-                                        info@example.com
+                                        theplantnest@gmail.com
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tel:626997-4298">(626)997-4298</a>
+                                    <a href="tel:+(92)315-2834644">
+                                        +92 0315-2834644
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -877,25 +899,15 @@
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="row align-items-center">
+                <div class="row d-flex justify-content-center align-content-center">
                     <div class="col-md-6">
-                        <div class="text-center text-md-start">
-                            <p>
-                                ©
-                                <span class="current-year">2023</span>
-                                <span> Plantfy </span> Made with
-                                <i class="lastudioicon-heart-1"></i>
-                                by
-                                <a href="https://hasthemes.com/">HasThemes</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="d-flex justify-content-center justify-content-md-end">
-                            <li><a href="term-of-use.html">Term of user</a></li>
-                            <li><a href="#">Payment refund</a></li>
-                            <li><a href="#">Accessibility</a></li>
-                        </ul>
+                        <p>
+                            ©
+                            <span class="current-year">2023</span>
+                            <span> PlantNest </span> Made with
+                            <i class="lastudioicon-heart-1"></i>
+                            by Team WAD - 14 Aptech NK, Karachi
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,69 @@
+﻿﻿@model IEnumerable<PlantNest.Models.ProductViewModel>
+@{
+    Layout = null;
+}
+<body>
+    @Html.Partial("Layout")
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="body-wrapper">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container" style="border: 0.5px solid deepskyblue; width: 50%; padding-top: 10px; height: 45px; border-radius: 8px; box-shadow: rgba(100, 100, 111, 0.08) 0px 7px 29px 0px; margin-bottom: 40px;">
+                            <h5 class="card-title fw-semibold mb-4 text-center">Your All Product</h5>
+                        </div>
+                        
+                                <div class="table-responsive">
+                                    <table class="table text-nowrap mb-0 align-middle">
+                                        <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Product Category</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Product Name</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Product Description</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Product Price</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Product Image</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Admin</h6>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model != null)
+                                            {
+                                                foreach (var item in Model)
+                                                {
+                                            <tr>
+                                                <td>@item.cat_name</td>
+                                                <td>@item.pro_name</td>
+                                                <td>@item.pro_desc</td>
+                                                <td>@item.pro_price</td>
+                                                @if (!string.IsNullOrEmpty(item.pro_image))
+                                                {
+                                                    var imagePaths = item.pro_image.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                                    var firstImagePath = Url.Content(imagePaths[0]);
+                                                    <td><img src="@firstImagePath" class="circle-img" style="width: 70px; height: 60px; border-radius: 50%; object-fit: cover;"/></td>
+                                                }
+                                                <td>@item.u_name</td>
+                                            </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

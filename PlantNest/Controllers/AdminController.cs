@@ -182,6 +182,34 @@ namespace PlantNest.Controllers
             return View();
         }
 
+        public ActionResult ViewAllProducts()
+        {
+
+            List<tbl_product> pro_list = db.tbl_product.ToList();
+
+            List<ProductViewModel> pvm_list = pro_list.Select(x => new ProductViewModel
+            {
+                cat_id = x.tbl_category.cat_id,
+                cat_name = x.tbl_category.cat_name,
+                pro_id = x.pro_id,
+                pro_name = x.pro_name,
+                pro_desc = x.pro_desc,
+                pro_price = x.pro_price,
+                pro_image = x.pro_image,
+                u_id = x.tbl_admin.ad_id,
+                u_name = x.tbl_admin.ad_name,
+            }
+            ).ToList();
+
+            return View(pvm_list);
+        }
+
+        public ActionResult RegisteredUser()
+        {
+            List<tbl_user> user_list = db.tbl_user.ToList();
+            return View(user_list);
+        }
+
         public string uploadimage(HttpPostedFileBase file)
         {
             Random r = new Random();
