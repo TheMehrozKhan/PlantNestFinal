@@ -12,7 +12,7 @@ namespace PlantNest.Controllers
 {
     public class PlantNestController : Controller
     {
-        PlantNestEntities db = new PlantNestEntities();
+        PlantNestEntities1 db = new PlantNestEntities1();
 
         public ActionResult Index()
         {

@@ -456,7 +456,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PlantNestEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__tbl_order__o_fk___440B1D61">
+          <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="0..1" />
+          <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_product">
+              <PropertyRef Name="pro_id" />
+            </Principal>
+            <Dependent Role="tbl_order">
+              <PropertyRef Name="o_fk_pro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PlantNestEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" />
           <EntitySet Name="tbl_category" EntityType="Self.tbl_category" />
           <EntitySet Name="tbl_invoice" EntityType="Self.tbl_invoice" />
@@ -509,7 +521,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PlantNestModelStoreContainer" CdmEntityContainer="PlantNestEntities">
+        <EntityContainerMapping StorageEntityContainer="PlantNestModelStoreContainer" CdmEntityContainer="PlantNestEntities1">
           <EntitySetMapping Name="tbl_admin">
             <EntityTypeMapping TypeName="PlantNestModel.tbl_admin">
               <MappingFragment StoreEntitySet="tbl_admin">
