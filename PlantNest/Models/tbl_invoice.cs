@@ -18,7 +18,6 @@ namespace PlantNest.Models
         public tbl_invoice()
         {
             this.tbl_order = new HashSet<tbl_order>();
-            this.tbl_order1 = new HashSet<tbl_order>();
         }
     
         public int in_id { get; set; }
@@ -27,10 +26,7 @@ namespace PlantNest.Models
         public Nullable<int> in_totalbill { get; set; }
     
         public virtual tbl_user tbl_user { get; set; }
-        public virtual tbl_user tbl_user1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_order> tbl_order { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_order> tbl_order1 { get; set; }
     }
 }
