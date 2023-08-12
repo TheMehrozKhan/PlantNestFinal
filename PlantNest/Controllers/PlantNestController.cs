@@ -383,6 +383,79 @@ namespace PlantNest.Controllers
             return RedirectToAction("Index", "User");
         }
 
+        public ActionResult Add_Wishlist(int? id)
+        {
+            // Check if the user is logged in
+            if (Session["u_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            tbl_product p = db.tbl_product.Where(x => x.pro_id == id).SingleOrDefault();
+            if (p == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            List<Wishlist> userItems = Session["wishlist"] as List<Wishlist>;
+
+            if (userItems == null)
+            {
+                userItems = new List<Wishlist>();
+            }
+
+            Wishlist existingItem = userItems.FirstOrDefault(item => item.pro_id == id);
+
+            if (existingItem != null)
+            {
+                existingItem.o_qty++;
+                existingItem.o_bill = existingItem.pro_price * existingItem.o_qty;
+            }
+            else
+            {
+                Wishlist ca = new Wishlist();
+                ca.pro_id = p.pro_id;
+                ca.pro_name = p.pro_name;
+                ca.pro_price = p.pro_price;
+                ca.o_qty = 1;
+                ca.o_bill = ca.pro_price * ca.o_qty;
+                ca.pro_image = p.pro_image;
+
+                userItems.Add(ca);
+            }
+
+            int cartCount = userItems.Count;
+            ViewBag.CartCount = cartCount;
+
+            Session["wishlist"] = userItems;
+
+            return Redirect(Request.UrlReferrer.ToString());
+        }
+
+        public ActionResult View_Wishlist()
+        {
+            if (Session["u_id"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            List<Wishlist> userItems = Session["Wishlist"] as List<Wishlist>;
+
+            if (userItems == null)
+            {
+                userItems = new List<Wishlist>();
+            }
+
+            ViewBag.WishlistCount = userItems.Count;
+
+            return View(userItems);
+        }
+
         public ActionResult Search(int? id, int? page, string search)
         {
             int pageSize = 6;

@@ -1,0 +1,93 @@
+﻿﻿@model PlantNest.Models.CheckoutViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fill Out Your Payment Details - Shopio</title>
+    <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.6/dist/inputmask.min.js"></script>
+</head>
+<body>
+    <style>
+        .payment-form {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 1px solid white;
+            border-radius: 16px;
+            box-shadow: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;
+        }
+
+        .custom-input {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+            .custom-input:focus {
+                outline: none;
+                box-shadow: none;
+                border-color: darkslateblue;
+            }
+
+        .payment-icons {
+            text-align: center;
+        }
+
+            .payment-icons img {
+                height: 50px;
+                margin: 0 5px;
+                margin-bottom: 15px;
+            }
+    </style>
+    <div class="container" style="margin-top:250px;margin-bottom:250px;">
+        @using (Html.BeginForm("PlaceOrder", "PlanetNest", FormMethod.Post, new { enctype = "multipart/form-data", id = "checkoutForm" }))
+        {
+            <div class="payment-form">
+                <!-- Credit card number field -->
+                <div class="form-group">
+                    <label>Credit Card Number</label>
+                    @Html.TextBoxFor(x => x.CreditCardNumber, new { @class = "form-control custom-input", @placeholder = "Enter Credit Card Number", @data_inputmask = "'mask': '9999 9999 9999 9999'" })
+                </div>
+                <!-- CCV field -->
+                <div class="form-group">
+                    <label>CCV</label>
+                    @Html.TextBoxFor(x => x.CCV, new { @class = "form-control custom-input", @id = "ccv", @placeholder = "Enter CCV", @type = "number" })
+                </div>
+                <!-- Expiry date field -->
+                <div class="form-group">
+                    <label>Expiry Date</label>
+                    @Html.TextBoxFor(x => x.ExpiryDate, new { @class = "form-control custom-input", @id = "expiryDate", @placeholder = "Enter Expiry Date", @type = "date" })
+                </div>
+                <!-- PIN field -->
+                <div class="form-group">
+                    <label>PIN</label>
+                    @Html.TextBoxFor(x => x.PIN, new { @class = "form-control custom-input", @id = "pin", @placeholder = "Enter PIN", @type = "password" })
+                </div>
+                <div class="container" style="display:flex;justify-content:center;align-items:center;">
+                    <button type="submit" class="btn btn-primary bg-dark" style="color:white;">Place Order</button>
+                </div>
+            </div>
+        }
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                icon: 'success',
+                title: 'Congrats!',
+                text: 'Your Order Has Been Placed Successfully.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '@Url.Action("Index", "User")';
+                    this.submit();
+                }
+            });
+        });
+
+        Inputmask().mask(document.querySelectorAll('[data-inputmask]'));
+    </script>
+</body>
+</html>

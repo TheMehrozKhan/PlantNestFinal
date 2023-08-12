@@ -57,14 +57,20 @@
                                             <i class="lastudioicon-i-add-2"></i>
                                         </button>
                                     </div>
+
                                     <form class="product-form" style="width:100%;">
                                         <div class="product-form-buttons d-flex align-items-center justify-content-between mt-4">
-                                            <button type="submit" class="btn btn-primary position-relative btn-atc btn-add-to-cart loader bg-dark" style="color:white;">ADD TO CART</button>
+                                            <button type="submit" class="btn btn-primary position-relative btn-atc btn-add-to-cart loader bg-dark" style="color:white;">
+                                            <a href="@Url.Action("Add_To_Cart", "PlantNest", new { id = Model.pro_id })">
+                                                Add To Cart
+                                            </a>
+                                            </button>
                                         </div>
                                         <div class="buy-it-now-btn mt-2">
                                             <button type="submit" class="btn btn-primary position-relative btn-atc btn-buyit-now bg-dark" style="color:white;">BUY IT NOW</button>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>

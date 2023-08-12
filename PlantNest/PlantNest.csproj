@@ -413,6 +413,8 @@
     <Content Include="Views\PlantNest\CategoryPage.cshtml" />
     <Content Include="Views\PlantNest\DisplayAdd.cshtml" />
     <Content Include="Views\PlantNest\ProductDetails.cshtml" />
+    <Content Include="Views\PlantNest\View_Cart.cshtml" />
+    <Content Include="Views\PlantNest\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
