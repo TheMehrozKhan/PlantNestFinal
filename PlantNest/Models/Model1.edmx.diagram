@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="19eeded9ba194ea0867c8581efd76de1" Name="Diagram1">
+      <Diagram DiagramId="b845dc0af46e46c5bd120b98366eafc7" Name="Diagram1">
         <EntityTypeShape EntityType="PlantNestModel.tbl_admin" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PlantNestModel.tbl_category" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PlantNestModel.tbl_invoice" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
