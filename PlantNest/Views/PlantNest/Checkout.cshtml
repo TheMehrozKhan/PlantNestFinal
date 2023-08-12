@@ -42,7 +42,7 @@
             }
     </style>
     <div class="container" style="margin-top:250px;margin-bottom:250px;">
-        @using (Html.BeginForm("PlaceOrder", "PlanetNest", FormMethod.Post, new { enctype = "multipart/form-data", id = "checkoutForm" }))
+        @using (Html.BeginForm("PlaceOrder", "PlantNest", FormMethod.Post, new { enctype = "multipart/form-data", id = "checkoutForm" }))
         {
             <div class="payment-form">
                 <!-- Credit card number field -->
@@ -81,7 +81,7 @@
                 text: 'Your Order Has Been Placed Successfully.'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '@Url.Action("Index", "User")';
+                window.location.href = '@Url.Action("Index", "PlantNest")';
                     this.submit();
                 }
             });
