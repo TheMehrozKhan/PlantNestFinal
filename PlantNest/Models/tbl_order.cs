@@ -28,8 +28,6 @@ namespace PlantNest.Models
         public Nullable<System.DateTime> u_expiry_date { get; set; }
     
         public virtual tbl_invoice tbl_invoice { get; set; }
-        public virtual tbl_invoice tbl_invoice1 { get; set; }
         public virtual tbl_product tbl_product { get; set; }
-        public virtual tbl_product tbl_product1 { get; set; }
     }
 }
